@@ -39,18 +39,72 @@ fn load_inner(account: &OpenAiAccount, shared: &SharedArgs) -> Result<Vec<Platfo
         .http_status_as_error(false)
         .build()
         .new_agent();
-    let mut days = BTreeMap::new();
-    for endpoint in ["usage/completions", "usage/embeddings", "costs"] {
+    let days = collect_sources(shared.single_thread, |endpoint| {
+        let mut days = BTreeMap::new();
         collect_pages(&mut days, endpoint, |page| {
             request_page(&agent, endpoint, &key, account, start, end, page)
         })?;
-    }
+        Ok(days)
+    })?;
     let days: Vec<_> = days
         .into_values()
         .filter(|day| day.total_tokens() != 0 || day.total_cost != 0.0)
         .collect();
     if let Some(path) = cache_path {
         let _ = super::cache::write(&path, &days);
+    }
+    Ok(days)
+}
+
+// Three independent endpoints per account; cursor pages remain sequential.
+// Merge in endpoint order so scheduling cannot change report totals.
+fn collect_sources(
+    single_thread: bool,
+    collect: impl Fn(&str) -> Result<BTreeMap<String, PlatformDay>> + Sync,
+) -> Result<BTreeMap<String, PlatformDay>> {
+    let endpoints = ["usage/completions", "usage/embeddings", "costs"];
+    let sources = if single_thread {
+        endpoints
+            .into_iter()
+            .map(&collect)
+            .collect::<Result<Vec<_>>>()?
+    } else {
+        std::thread::scope(|scope| {
+            let workers: Vec<_> = endpoints
+                .into_iter()
+                .map(|endpoint| {
+                    let collect = &collect;
+                    scope.spawn(move || collect(endpoint))
+                })
+                .collect();
+            workers
+                .into_iter()
+                .map(|worker| {
+                    worker
+                        .join()
+                        .map_err(|_| cli_error("OpenAI collector thread failed"))?
+                })
+                .collect::<Result<Vec<_>>>()
+        })?
+    };
+    let mut days: BTreeMap<String, PlatformDay> = BTreeMap::new();
+    for source in sources {
+        for (date, day) in source {
+            let total = days.entry(date).or_insert_with(|| PlatformDay {
+                date: day.date,
+                ..Default::default()
+            });
+            total.input_tokens = total.input_tokens.saturating_add(day.input_tokens);
+            total.output_tokens = total.output_tokens.saturating_add(day.output_tokens);
+            total.cache_creation_tokens = total
+                .cache_creation_tokens
+                .saturating_add(day.cache_creation_tokens);
+            total.cache_read_tokens = total
+                .cache_read_tokens
+                .saturating_add(day.cache_read_tokens);
+            total.total_cost += day.total_cost;
+            total.models.extend(day.models);
+        }
     }
     Ok(days)
 }
@@ -173,6 +227,68 @@ fn date_seconds(value: &str) -> Result<i64> {
 mod tests {
     use super::*;
     use serde_json::json;
+    #[test]
+    fn independent_endpoints_run_concurrently_and_keep_identical_totals() {
+        use std::sync::atomic::{AtomicUsize, Ordering};
+        let started = AtomicUsize::new(0);
+        let fixture = |endpoint: &str| {
+            let results = match endpoint {
+                "usage/completions" => {
+                    json!([{"input_tokens":100,"input_cached_tokens":30,"output_tokens":20,"model":"chat"}])
+                }
+                "usage/embeddings" => json!([{"input_tokens":10,"model":"embedding"}]),
+                _ => json!([{"amount":{"value":0.42,"currency":"usd"}}]),
+            };
+            let mut days = BTreeMap::new();
+            merge_page(
+                &mut days,
+                endpoint,
+                &json!({"data":[{"start_time":1789171200,"results":results}]}),
+            )?;
+            Ok(days)
+        };
+        let parallel = collect_sources(false, |endpoint| {
+            started.fetch_add(1, Ordering::SeqCst);
+            let deadline = std::time::Instant::now() + Duration::from_secs(2);
+            while started.load(Ordering::SeqCst) < 3 {
+                assert!(
+                    std::time::Instant::now() < deadline,
+                    "endpoints must start concurrently"
+                );
+                std::thread::sleep(Duration::from_millis(1));
+            }
+            fixture(endpoint)
+        })
+        .unwrap();
+        let sequential = collect_sources(true, fixture).unwrap();
+        assert_eq!(
+            serde_json::to_value(&parallel).unwrap(),
+            serde_json::to_value(sequential).unwrap()
+        );
+        let day = parallel.values().next().unwrap();
+        assert_eq!(day.total_tokens(), 130);
+        assert_eq!(day.total_cost, 0.42);
+        assert_eq!(day.models.len(), 2);
+    }
+
+    #[test]
+    fn parallel_source_failure_fails_the_whole_report() {
+        let result = collect_sources(false, |endpoint| {
+            if endpoint == "costs" {
+                Err(cli_error("billing unavailable"))
+            } else {
+                Ok(BTreeMap::new())
+            }
+        });
+        assert!(
+            result
+                .err()
+                .unwrap()
+                .to_string()
+                .contains("billing unavailable")
+        );
+    }
+
     #[test]
     fn follows_all_pages_including_empty_history() {
         let mut calls = 0;
