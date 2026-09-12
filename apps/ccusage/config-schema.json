@@ -181,11 +181,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -362,11 +362,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -543,11 +543,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -727,11 +727,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -919,11 +919,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -1100,11 +1100,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -1281,11 +1281,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -1465,11 +1465,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -1660,11 +1660,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -1847,11 +1847,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -2028,11 +2028,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -2209,11 +2209,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -2515,11 +2515,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"startOfWeek": {
@@ -2776,11 +2776,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"startOfWeek": {
@@ -2993,11 +2993,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -3174,11 +3174,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -3355,11 +3355,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -3539,11 +3539,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -3724,11 +3724,11 @@
 											"type": "string"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -3898,11 +3898,11 @@
 											"type": "string"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -4072,11 +4072,11 @@
 											"type": "string"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -4249,11 +4249,11 @@
 									"type": "string"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -4441,11 +4441,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -4628,11 +4628,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -4809,11 +4809,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -4992,11 +4992,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -5173,11 +5173,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -5479,11 +5479,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"startOfWeek": {
@@ -5686,11 +5686,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -5867,11 +5867,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -6048,11 +6048,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -6232,11 +6232,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -6418,11 +6418,11 @@
 							"type": "boolean"
 						},
 						"ssh": {
-							"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+							"description": "SSH destinations to collect all supported agents from in unified reports.",
 							"items": {
 								"type": "string"
 							},
-							"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+							"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 							"type": "array"
 						},
 						"timezone": {
@@ -6607,11 +6607,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -6788,11 +6788,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -6969,11 +6969,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -7153,11 +7153,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -7345,11 +7345,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -7526,11 +7526,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -7707,11 +7707,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -7891,11 +7891,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -8083,11 +8083,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -8264,11 +8264,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -8445,11 +8445,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -8629,11 +8629,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -8821,11 +8821,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -9002,11 +9002,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -9183,11 +9183,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -9367,11 +9367,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -9559,11 +9559,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -9740,11 +9740,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -9921,11 +9921,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -10105,11 +10105,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -10297,11 +10297,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -10478,11 +10478,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -10659,11 +10659,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -10843,11 +10843,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -11035,11 +11035,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -11216,11 +11216,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -11397,11 +11397,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -11581,11 +11581,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -11813,11 +11813,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -11985,11 +11985,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -12157,11 +12157,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -12332,11 +12332,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -12524,11 +12524,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -12705,11 +12705,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -12886,11 +12886,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -13067,11 +13067,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -13251,11 +13251,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -13434,11 +13434,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -13606,11 +13606,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -13778,11 +13778,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -13953,11 +13953,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -14168,11 +14168,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -14349,11 +14349,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -14530,11 +14530,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -14714,11 +14714,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {
@@ -14906,11 +14906,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -15087,11 +15087,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -15268,11 +15268,11 @@
 											"type": "boolean"
 										},
 										"ssh": {
-											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"description": "SSH destinations to collect all supported agents from in unified reports.",
 											"items": {
 												"type": "string"
 											},
-											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 											"type": "array"
 										},
 										"timezone": {
@@ -15452,11 +15452,11 @@
 									"type": "boolean"
 								},
 								"ssh": {
-									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"description": "SSH destinations to collect all supported agents from in unified reports.",
 									"items": {
 										"type": "string"
 									},
-									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
 									"type": "array"
 								},
 								"timezone": {

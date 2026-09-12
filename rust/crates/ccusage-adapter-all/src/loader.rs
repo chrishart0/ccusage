@@ -111,6 +111,7 @@ fn load_base_rows(
     );
     let loader_shared = SharedArgs {
         json: true,
+        ssh: Vec::new(),
         ..shared.clone()
     };
     let mut specs = vec![
@@ -416,6 +417,16 @@ fn load_base_rows(
                 }),
             });
         }
+    }
+    for host in &shared.ssh {
+        let agent = leak_agent_name(&format!("ssh:{host}"));
+        let loader_shared_ref = &loader_shared;
+        specs.push(AgentLoadSpec {
+            index: specs.len(),
+            agent,
+            progress_agent: crate::progress::UsageLoadAgent(agent),
+            load: Box::new(move || super::remote::load(host, load_kind, loader_shared_ref)),
+        });
     }
     let loaded = load_agent_rows_parallel(specs, &mut progress)?;
     let mut detected_agents = Vec::new();

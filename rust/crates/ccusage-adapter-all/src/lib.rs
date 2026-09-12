@@ -1,4 +1,5 @@
 mod loader;
+mod remote;
 mod report;
 mod rolling;
 pub use rolling::run as run_rolling;

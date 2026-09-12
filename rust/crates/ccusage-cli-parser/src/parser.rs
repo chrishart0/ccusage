@@ -1262,7 +1262,7 @@ fn ssh_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Opti
         ) => (&args.shared, false),
     };
     if !shared.ssh.is_empty() && !supported {
-        return Some("The --ssh option collects Hermes usage and is available on unified and Hermes reports.".to_string());
+        return Some("The --ssh option is available on unified reports (all agents) and focused Hermes reports.".to_string());
     }
     None
 }

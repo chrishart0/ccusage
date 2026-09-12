@@ -38,7 +38,7 @@ pub struct SharedArgs {
     /// Number of most recent report periods to keep, resolved into `since` by
     /// the binary once the report's calendar unit is known.
     pub last: Option<u32>,
-    /// SSH destinations whose Hermes usage is included alongside local usage.
+    /// SSH destinations whose supported agent usage is included in unified reports.
     pub ssh: Vec<String>,
     pub openai_accounts: Vec<OpenAiAccount>,
     pub openai_env_file: Option<PathBuf>,

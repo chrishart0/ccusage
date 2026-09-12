@@ -77,7 +77,7 @@ OPTIONS:
   --config <config>                    Path to configuration file (default: auto-discovery)
   -h, --help                           Display this help message
   -v, --version                        Display this version
-  --ssh <host>                         Include Hermes usage from an SSH server (repeatable; adds to config ssh servers)
+  --ssh <host>                         Include an SSH server (all agents in unified reports; Hermes in focused Hermes reports)
   --no-ssh                             Disable configured SSH servers for this invocation
   --no-openai                          Skip configured OpenAI Platform accounts for this invocation
   --refresh-openai                     Refresh OpenAI usage instead of using the five-minute cache

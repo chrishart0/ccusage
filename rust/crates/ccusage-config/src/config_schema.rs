@@ -386,7 +386,7 @@ pub struct SharedOptions {
     /// Most recent calendar periods (daily: today and the preceding N-1 days).
     #[schemars(range(min = 1))]
     pub last: Option<u32>,
-    /// SSH destinations to collect Hermes usage from alongside local usage.
+    /// SSH destinations to collect all supported agents from in unified reports.
     pub ssh: Option<Vec<String>>,
     /// Filter from date (YYYY-MM-DD or YYYYMMDD).
     pub since: Option<String>,

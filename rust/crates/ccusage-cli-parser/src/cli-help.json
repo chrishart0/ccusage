@@ -431,7 +431,7 @@
 	"ssh_options": [
 		{
 			"flags": "--ssh <host>",
-			"description": "Include Hermes usage from an SSH server (repeatable; adds to config ssh servers)"
+			"description": "Include an SSH server (all agents in unified reports; Hermes in focused Hermes reports)"
 		},
 		{
 			"flags": "--no-ssh",

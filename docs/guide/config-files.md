@@ -20,12 +20,13 @@ Save this as `~/.config/ccusage/ccusage.json` (or
 ```
 
 Run `ccusage rolling` for one combined summary of all locally detected agents and
-Hermes usage from `crm` over the last 30 calendar days, including today.
+all supported agent usage from `crm` over the last 30 calendar days, including today.
 `ccusage rolling 7` changes the window to seven days. Normal daily and monthly
 reports have no default date filter. Add more SSH aliases or
 `user@hostname` destinations to `ssh`. Your existing SSH config supplies keys,
-ports, and jump hosts. No ccusage installation is needed on the servers; they
-need Python 3 and readable Hermes databases under `${HERMES_HOME:-~/.hermes}`.
+ports, and jump hosts. Install the same fork as `~/.local/bin/ccusage-fork` on
+each server, using a binary built for that server's operating system and architecture.
+The collector runs native source discovery there. Hermes databases live under `${HERMES_HOME:-~/.hermes}`.
 Collection includes `state.db` and named `profiles/*/state.db` databases, but
 excludes `state-snapshots` backups.
 
@@ -35,23 +36,27 @@ ccusage rolling                  # One summary for the last 30 days
 ccusage rolling 7                # One summary for the last 7 days
 ccusage hermes daily             # Local and remote Hermes only
 ccusage daily --ssh another-host  # Add a server for this run
-ccusage daily --no-ssh            # Local usage only for this run
+ccusage daily --no-ssh            # Skip SSH for this run
 ccusage rolling --last 7          # Equivalent explicit day-count option
 ```
 
-SSH collection currently supports **Hermes**. It reads only billing counters,
-model names, timestamps, and session IDs through a read-only SQLite connection,
-including committed WAL data. It does not transfer conversations or create
-remote files. Remote session IDs start with `ssh:<host>:`; repeated destinations
-and session IDs within a host are counted once. Different aliases for the same
+Unified SSH collection supports every built-in agent. It runs a JSON report on
+the server and transfers summarized counters, model names, and session IDs, not
+conversations. Source labels are `ssh:<host>:<agent>` and remote session IDs start
+with `ssh:<host>:`. The remote process uses embedded pricing, an empty config,
+and `--no-ssh --no-openai` to prevent recursion and duplicate Platform accounts.
+Custom remote config paths and named pi stores are not imported. The focused
+`ccusage hermes` reports retain the Python 3 read-only SQLite collector, including
+committed WAL data. Repeated destinations and Hermes session IDs within a host
+are counted once. Different aliases for the same
 server are distinct sources, so configure each server only once.
 
-Connection/authentication errors, missing databases, and collector errors fail
+Connection/authentication errors and collector errors fail
 the report instead of showing incomplete totals. Each connection has a 10-second
-connect timeout and a 60-second collection timeout. SSH uses batch authentication
+connect timeout and a 120-second collection timeout (60 seconds for focused Hermes). SSH uses batch authentication
 and your normal host-key verification; establish the connection with `ssh crm`
 first if necessary. `--offline` disables pricing fetches, but still collects SSH
-usage; use `--no-ssh` to skip remote collection.
+usage; use `--no-ssh` to skip remote collection. Servers with no supported data contribute no rows.
 
 `last` counts the report's calendar periods (days for daily, weeks for weekly,
 months for monthly). For the rolling view it always counts days. Set

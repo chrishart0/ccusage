@@ -44,5 +44,8 @@ SSH destinations come from `SharedArgs.ssh` (CLI `--ssh` or config `ssh`). Remot
 rows use the same SQLite token mapping as local rows, with host-prefixed session
 IDs. No remote logs are persisted locally. Collection errors fail the report.
 
-Remote discovery includes `state.db` and `profiles/*/state.db` under each Hermes
+Local and remote discovery include `state.db` and `profiles/*/state.db` under each Hermes
 home, never `state-snapshots` backups. A host with no databases fails collection.
+
+Unified reports use the native collector in `ccusage-adapter-all` for all supported
+agents on each SSH server; the Python collector here serves focused Hermes reports.

@@ -24,7 +24,7 @@ pnpm dlx ccusage hermes --help
 
 ## Data Source
 
-The CLI reads Hermes Agent session rows from `$HERMES_HOME/state.db`. When `HERMES_HOME` is not set, ccusage checks `~/.hermes/state.db`.
+The CLI reads Hermes Agent session rows from `$HERMES_HOME/state.db`. When `HERMES_HOME` is not set, ccusage checks `~/.hermes/state.db`. It also discovers named `profiles/*/state.db` databases under each root, excluding `state-snapshots` backups.
 
 ```bash
 HERMES_HOME="$HOME/.hermes" ccusage hermes daily

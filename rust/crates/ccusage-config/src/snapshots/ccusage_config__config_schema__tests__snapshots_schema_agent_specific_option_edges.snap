@@ -317,11 +317,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "string"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -507,11 +507,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -695,11 +695,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -874,11 +874,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -1062,11 +1062,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -1241,11 +1241,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -1431,11 +1431,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {
@@ -1644,11 +1644,11 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "type": "boolean"
       },
       "ssh": {
-        "description": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
         "items": {
           "type": "string"
         },
-        "markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
         "type": "array"
       },
       "timezone": {

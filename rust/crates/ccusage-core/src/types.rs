@@ -95,7 +95,7 @@ impl TokenCounts {
     }
 }
 
-#[derive(Debug, Clone, Default, Serialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ModelBreakdown {
     pub model_name: String,
@@ -103,10 +103,10 @@ pub struct ModelBreakdown {
     pub output_tokens: u64,
     pub cache_creation_tokens: u64,
     pub cache_read_tokens: u64,
-    #[serde(skip_serializing)]
+    #[serde(skip)]
     pub extra_total_tokens: u64,
     pub cost: f64,
-    #[serde(skip_serializing)]
+    #[serde(skip)]
     pub missing_pricing: bool,
 }
 
