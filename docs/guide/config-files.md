@@ -2,6 +2,64 @@
 
 ccusage supports JSON configuration files for persistent settings. Configuration files allow you to set default options for all commands or customize behavior for specific commands without repeating options every time.
 
+## SSH collection and a default 30-day view (fork)
+
+Save this as `~/.config/ccusage/ccusage.json` (or
+`$XDG_CONFIG_HOME/ccusage/ccusage.json`):
+
+```json
+{
+	"defaults": {
+		"ssh": ["crm"],
+		"timezone": "America/New_York"
+	},
+	"commands": {
+		"daily": { "last": 30 }
+	}
+}
+```
+
+Run `ccusage` to combine all locally detected agents with Hermes usage from `crm`
+over the last 30 calendar days, including today. Add more SSH aliases or
+`user@hostname` destinations to `ssh`. Your existing SSH config supplies keys,
+ports, and jump hosts. No ccusage installation is needed on the servers; they
+need Python 3 and readable Hermes databases under `${HERMES_HOME:-~/.hermes}`.
+Collection includes `state.db` and named `profiles/*/state.db` databases, but
+excludes `state-snapshots` backups.
+
+```sh
+ccusage                          # Configured daily report
+ccusage hermes daily             # Local and remote Hermes only
+ccusage daily --ssh another-host  # Add a server for this run
+ccusage daily --no-ssh            # Local usage only for this run
+ccusage daily --last 7            # Override the configured period count
+```
+
+SSH collection currently supports **Hermes**. It reads only billing counters,
+model names, timestamps, and session IDs through a read-only SQLite connection,
+including committed WAL data. It does not transfer conversations or create
+remote files. Remote session IDs start with `ssh:<host>:`; repeated destinations
+and session IDs within a host are counted once. Different aliases for the same
+server are distinct sources, so configure each server only once.
+
+Connection/authentication errors, missing databases, and collector errors fail
+the report instead of showing incomplete totals. Each connection has a 10-second
+connect timeout and a 60-second collection timeout. SSH uses batch authentication
+and your normal host-key verification; establish the connection with `ssh crm`
+first if necessary. `--offline` disables pricing fetches, but still collects SSH
+usage; use `--no-ssh` to skip remote collection.
+
+`last` counts the report's calendar periods (days for daily, weeks for weekly,
+months for monthly), so put `last: 30` under `commands.daily` for a 30-day default.
+It cannot be combined with `since`, `until`, or multiple `sections`. Hermes
+attributes cumulative session counters to the session start date, as it does for
+local data; these are not per-request daily measurements.
+
+A project's `.ccusage/ccusage.json` takes precedence over the user config.
+Only the first discovered file is loaded. `--config /path/to/ccusage.json` selects
+an explicit file. Configured SSH servers are ignored by focused reports for other
+agents. `--ssh` appends destinations; `--no-ssh` clears them in argument order.
+
 ## Quick Start
 
 ### 1. Use Schema for IDE Support
@@ -84,9 +142,10 @@ ccusage monthly
 ccusage searches for configuration files in these locations (in priority order):
 
 1. **Local project**: `.ccusage/ccusage.json` (higher priority)
-2. **User config**: `~/.claude/ccusage.json` or `~/.config/claude/ccusage.json` (lower priority)
+2. **ccusage user config**: `$XDG_CONFIG_HOME/ccusage/ccusage.json` (defaults to `~/.config/ccusage/ccusage.json`)
+3. **Legacy user config**: `~/.claude/ccusage.json` or `~/.config/claude/ccusage.json` (lower priority)
 
-Configuration files are merged in priority order, with local project settings overriding user settings.
+The first matching configuration file is used; files are not merged.
 If you pass a custom config file using `--config`, it will override both local and user configs.
 Note that configuration files are not required; if none are found, ccusage will use built-in defaults.
 Also, if you have multiple config files, only the first one found will be used.

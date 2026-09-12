@@ -427,5 +427,15 @@
 			"default": "sunday",
 			"choices": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 		}
+	],
+	"ssh_options": [
+		{
+			"flags": "--ssh <host>",
+			"description": "Include Hermes usage from an SSH server (repeatable; adds to config ssh servers)"
+		},
+		{
+			"flags": "--no-ssh",
+			"description": "Disable configured SSH servers for this invocation"
+		}
 	]
 }

@@ -23,6 +23,35 @@
 
 > Analyze coding (agent) CLI token usage and costs from local data.
 
+## Fork additions
+
+This branch is not published to npm; `npx ccusage` still runs upstream.
+Build this fork from the repository root:
+
+```sh
+cargo build --manifest-path rust/Cargo.toml -p ccusage --bin ccusage --release --features fetch-litellm-pricing
+mkdir -p ~/.local/bin
+cp rust/target/release/ccusage ~/.local/bin/ccusage-fork
+ccusage-fork
+```
+
+Use `ccusage-fork` in place of `ccusage` in the examples below.
+
+Configure SSH servers and a default last-30-days view in
+`~/.config/ccusage/ccusage.json`:
+
+```json
+{
+	"defaults": { "ssh": ["crm"], "timezone": "America/New_York" },
+	"commands": { "daily": { "last": 30 } }
+}
+```
+
+Then run `ccusage`. Reports combine local usage with **Hermes** usage from the
+configured SSH servers. Servers need Python 3; ccusage need not be installed
+remotely. `--ssh another-host` adds a server, and `--no-ssh` runs locally only.
+See the [configuration guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/config-files.md) for behavior and limits.
+
 ## Major Sponsors
 
 <div align="center">

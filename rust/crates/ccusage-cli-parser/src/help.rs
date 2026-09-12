@@ -82,6 +82,7 @@ fn root_help_text() -> String {
     }
     lines.push(String::new());
     lines.push(all_agent_options().to_string());
+    lines.extend(ssh_options().lines().skip(1).map(str::to_string));
     lines.join("\n")
 }
 

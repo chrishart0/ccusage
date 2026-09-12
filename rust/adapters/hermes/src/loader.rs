@@ -34,6 +34,13 @@ fn load_entries_inner(shared: &SharedArgs, pricing: &PricingMap) -> Result<Vec<L
             entries.push(to_loaded_entry(entry, tz.as_ref(), pricing));
         }
     }
+    for host in &shared.ssh {
+        entries.extend(
+            super::remote::load_entries(host)?
+                .into_iter()
+                .map(|entry| to_loaded_entry(entry, tz.as_ref(), pricing)),
+        );
+    }
     entries.sort_by_key(|entry| entry.timestamp);
     Ok(entries)
 }

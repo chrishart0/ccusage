@@ -72,6 +72,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -172,6 +179,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -238,6 +253,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -338,6 +360,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -404,6 +434,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -504,6 +541,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -572,6 +617,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -673,6 +725,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -750,6 +810,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -850,6 +917,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -916,6 +991,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -1016,6 +1098,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -1082,6 +1172,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -1182,6 +1279,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -1250,6 +1355,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -1352,6 +1464,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -1425,6 +1545,13 @@
 											"description": "Output in JSON format.",
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
+										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
 										},
 										"mode": {
 											"description": "Cost calculation mode.",
@@ -1532,6 +1659,14 @@
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
 										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
+										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
 											"markdownDescription": "Timezone for date grouping (IANA).",
@@ -1599,6 +1734,13 @@
 											"description": "Output in JSON format.",
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
+										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
 										},
 										"mode": {
 											"description": "Cost calculation mode.",
@@ -1704,6 +1846,14 @@
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
 										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
+										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
 											"markdownDescription": "Timezone for date grouping (IANA).",
@@ -1768,6 +1918,13 @@
 											"description": "Output in JSON format.",
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
+										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
 										},
 										"mode": {
 											"default": "auto",
@@ -1869,6 +2026,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -1935,6 +2100,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -2035,6 +2207,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -2233,6 +2413,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -2326,6 +2513,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"startOfWeek": {
 											"default": "sunday",
@@ -2437,6 +2632,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -2573,6 +2775,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"startOfWeek": {
 									"description": "First day of week for weekly grouping.",
 									"enum": [
@@ -2674,6 +2884,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -2774,6 +2991,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -2840,6 +3065,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -2940,6 +3172,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -3006,6 +3246,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -3106,6 +3353,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -3174,6 +3429,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -3276,6 +3538,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -3345,6 +3615,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -3445,6 +3722,14 @@
 											"enum": ["auto", "standard", "fast"],
 											"markdownDescription": "Codex speed normalization strategy.",
 											"type": "string"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -3504,6 +3789,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -3604,6 +3896,14 @@
 											"enum": ["auto", "standard", "fast"],
 											"markdownDescription": "Codex speed normalization strategy.",
 											"type": "string"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -3663,6 +3963,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -3763,6 +4070,14 @@
 											"enum": ["auto", "standard", "fast"],
 											"markdownDescription": "Codex speed normalization strategy.",
 											"type": "string"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -3824,6 +4139,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -3926,6 +4248,14 @@
 									"markdownDescription": "Codex speed normalization strategy.",
 									"type": "string"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -3996,6 +4326,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -4103,6 +4440,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -4170,6 +4515,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -4275,6 +4627,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -4339,6 +4699,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -4440,6 +4807,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -4506,6 +4881,13 @@
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
 								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
+								},
 								"mode": {
 									"default": "auto",
 									"description": "Cost calculation mode.",
@@ -4606,6 +4988,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -4804,6 +5194,13 @@
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
 								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
+								},
 								"mode": {
 									"description": "Cost calculation mode.",
 									"enum": ["auto", "calculate", "display"],
@@ -4898,6 +5295,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"startOfWeek": {
 									"default": "sunday",
 									"description": "First day of week for weekly grouping.",
@@ -4989,6 +5394,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -5089,6 +5501,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -5155,6 +5575,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -5255,6 +5682,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -5321,6 +5756,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -5421,6 +5863,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -5489,6 +5939,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -5591,6 +6048,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -5660,6 +6125,13 @@
 							"description": "Output in JSON format.",
 							"markdownDescription": "Output in JSON format.",
 							"type": "boolean"
+						},
+						"last": {
+							"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+							"format": "uint32",
+							"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+							"minimum": 1.0,
+							"type": "integer"
 						},
 						"mode": {
 							"default": "auto",
@@ -5762,6 +6234,14 @@
 							"markdownDescription": "Disable parallel file processing.",
 							"type": "boolean"
 						},
+						"ssh": {
+							"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+							"items": {
+								"type": "string"
+							},
+							"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+							"type": "array"
+						},
 						"timezone": {
 							"description": "Timezone for date grouping (IANA).",
 							"markdownDescription": "Timezone for date grouping (IANA).",
@@ -5835,6 +6315,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -5935,6 +6422,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -6001,6 +6496,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -6101,6 +6603,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -6167,6 +6677,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -6267,6 +6784,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -6335,6 +6860,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -6436,6 +6968,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -6513,6 +7053,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -6613,6 +7160,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -6679,6 +7234,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -6779,6 +7341,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -6845,6 +7415,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -6945,6 +7522,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -7013,6 +7598,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -7114,6 +7706,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -7191,6 +7791,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -7291,6 +7898,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -7357,6 +7972,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -7457,6 +8079,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -7523,6 +8153,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -7623,6 +8260,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -7691,6 +8336,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -7792,6 +8444,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -7869,6 +8529,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -7969,6 +8636,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -8035,6 +8710,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -8135,6 +8817,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -8201,6 +8891,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -8301,6 +8998,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -8369,6 +9074,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -8470,6 +9182,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -8547,6 +9267,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -8647,6 +9374,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -8713,6 +9448,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -8813,6 +9555,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -8879,6 +9629,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -8979,6 +9736,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -9047,6 +9812,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -9148,6 +9920,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -9225,6 +10005,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -9325,6 +10112,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -9391,6 +10186,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -9491,6 +10293,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -9557,6 +10367,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -9657,6 +10474,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -9725,6 +10550,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -9826,6 +10658,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -9903,6 +10743,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -10003,6 +10850,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -10069,6 +10924,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -10169,6 +11031,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -10235,6 +11105,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -10335,6 +11212,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -10403,6 +11288,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -10505,6 +11397,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -10574,6 +11474,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -10672,6 +11579,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -10731,6 +11646,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -10829,6 +11751,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -10888,6 +11818,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -10986,6 +11923,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -11047,6 +11992,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -11147,6 +12099,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -11223,6 +12183,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -11323,6 +12290,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -11389,6 +12364,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -11489,6 +12471,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -11555,6 +12545,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -11655,6 +12652,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -11721,6 +12726,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -11821,6 +12833,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -11889,6 +12909,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -11991,6 +13018,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -12060,6 +13095,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -12158,6 +13200,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -12217,6 +13267,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -12315,6 +13372,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -12374,6 +13439,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"description": "Cost calculation mode.",
 											"enum": ["auto", "calculate", "display"],
@@ -12472,6 +13544,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -12533,6 +13613,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"description": "Cost calculation mode.",
@@ -12633,6 +13720,14 @@
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
 								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
+								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
 									"markdownDescription": "Timezone for date grouping (IANA).",
@@ -12732,6 +13827,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -12832,6 +13934,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -12898,6 +14008,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -12998,6 +14115,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -13064,6 +14189,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -13164,6 +14296,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -13232,6 +14372,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -13333,6 +14480,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",
@@ -13410,6 +14565,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -13510,6 +14672,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -13576,6 +14746,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -13676,6 +14853,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -13742,6 +14927,13 @@
 											"markdownDescription": "Output in JSON format.",
 											"type": "boolean"
 										},
+										"last": {
+											"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"format": "uint32",
+											"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+											"minimum": 1.0,
+											"type": "integer"
+										},
 										"mode": {
 											"default": "auto",
 											"description": "Cost calculation mode.",
@@ -13842,6 +15034,14 @@
 											"description": "Disable parallel file processing.",
 											"markdownDescription": "Disable parallel file processing.",
 											"type": "boolean"
+										},
+										"ssh": {
+											"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"items": {
+												"type": "string"
+											},
+											"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+											"type": "array"
 										},
 										"timezone": {
 											"description": "Timezone for date grouping (IANA).",
@@ -13910,6 +15110,13 @@
 									"description": "Output in JSON format.",
 									"markdownDescription": "Output in JSON format.",
 									"type": "boolean"
+								},
+								"last": {
+									"description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"format": "uint32",
+									"markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+									"minimum": 1.0,
+									"type": "integer"
 								},
 								"mode": {
 									"default": "auto",
@@ -14011,6 +15218,14 @@
 									"description": "Disable parallel file processing.",
 									"markdownDescription": "Disable parallel file processing.",
 									"type": "boolean"
+								},
+								"ssh": {
+									"description": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"items": {
+										"type": "string"
+									},
+									"markdownDescription": "SSH destinations to collect Hermes usage from alongside local usage.",
+									"type": "array"
 								},
 								"timezone": {
 									"description": "Timezone for date grouping (IANA).",

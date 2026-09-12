@@ -358,6 +358,11 @@ pub struct ZCodeCommandsConfig {
 #[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct SharedOptions {
+    /// Most recent calendar periods (daily: today and the preceding N-1 days).
+    #[schemars(range(min = 1))]
+    pub last: Option<u32>,
+    /// SSH destinations to collect Hermes usage from alongside local usage.
+    pub ssh: Option<Vec<String>>,
     /// Filter from date (YYYY-MM-DD or YYYYMMDD).
     pub since: Option<String>,
     /// Filter until date (inclusive).
@@ -607,6 +612,17 @@ pub struct ConfigPricingOverride {
 impl SharedOptions {
     pub fn from_map(map: &Map<String, Value>) -> Self {
         Self {
+            last: map
+                .get("last")
+                .and_then(Value::as_u64)
+                .and_then(|n| u32::try_from(n).ok()),
+            ssh: map.get("ssh").and_then(Value::as_array).map(|hosts| {
+                hosts
+                    .iter()
+                    .filter_map(Value::as_str)
+                    .map(str::to_string)
+                    .collect()
+            }),
             since: string_option(map, "since"),
             until: string_option(map, "until"),
             json: bool_option(map, "json"),
@@ -1070,6 +1086,8 @@ mod tests {
             "offline",
             "order",
             "pricingOverrides",
+            "last",
+            "ssh",
             "since",
             "singleThread",
             "timezone",

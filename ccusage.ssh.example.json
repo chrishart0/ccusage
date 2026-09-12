@@ -1,0 +1,10 @@
+{
+	"$schema": "./apps/ccusage/config-schema.json",
+	"defaults": {
+		"ssh": ["crm"],
+		"timezone": "America/New_York"
+	},
+	"commands": {
+		"daily": { "last": 30 }
+	}
+}

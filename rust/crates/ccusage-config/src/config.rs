@@ -30,7 +30,7 @@ pub struct ConfigContext {
     command: ConfigCommand,
     pi_stores: Vec<NamedPiStore>,
     pi_store_error: Option<String>,
-    date_bound_error: Option<String>,
+    shared_option_error: Option<String>,
 }
 
 impl ConfigContext {
@@ -48,9 +48,9 @@ impl ConfigContext {
             command,
             pi_stores,
             pi_store_error,
-            date_bound_error: None,
+            shared_option_error: None,
         };
-        context.date_bound_error = context.detect_date_bound_error();
+        context.shared_option_error = context.detect_shared_option_error();
         context
     }
 
@@ -66,7 +66,28 @@ impl ConfigContext {
     /// parser gives `--since` / `--until`. `apply_shared_options` cannot fail,
     /// so the check runs here and surfaces through `config_error` for every
     /// command that applies shared options, not just the pi-store readers.
-    fn detect_date_bound_error(&self) -> Option<String> {
+    fn detect_shared_option_error(&self) -> Option<String> {
+        for options in self.option_maps() {
+            if let Some(last) = options.get("last")
+                && !last
+                    .as_u64()
+                    .is_some_and(|n| n > 0 && u32::try_from(n).is_ok())
+            {
+                return Some(config_error("last must be a positive 32-bit integer"));
+            }
+            if let Some(ssh) = options.get("ssh")
+                && !ssh.as_array().is_some_and(|hosts| {
+                    hosts.iter().all(|host| {
+                        host.as_str()
+                            .is_some_and(ccusage_cli::valid_ssh_destination)
+                    })
+                })
+            {
+                return Some(config_error(
+                    "ssh must be an array of SSH destinations (host aliases or user@hostname)",
+                ));
+            }
+        }
         self.option_maps().into_iter().find_map(|options| {
             [
                 ("since", options.get("since")),
@@ -260,6 +281,13 @@ fn discover_config_paths() -> Vec<PathBuf> {
     if let Ok(cwd) = env::current_dir() {
         paths.push(cwd.join(".ccusage").join("ccusage.json"));
     }
+    if let Some(config_dir) = env::var_os("XDG_CONFIG_HOME")
+        .filter(|value| !value.is_empty())
+        .map(PathBuf::from)
+        .or_else(|| ccusage_core::home::home_dir().map(|home| home.join(".config")))
+    {
+        paths.push(config_dir.join("ccusage").join("ccusage.json"));
+    }
     paths.extend(
         claude_config_dirs()
             .into_iter()
@@ -361,6 +389,7 @@ fn option_takes_value(arg: &str) -> bool {
             | "-u"
             | "--until"
             | "--last"
+            | "--ssh"
             | "-m"
             | "--mode"
             | "--debug-samples"
@@ -406,6 +435,19 @@ fn is_report_command(command: &str) -> bool {
 fn apply_config_to_shared(shared: &mut SharedArgs, config: &ConfigContext) {
     for options in config.option_maps() {
         apply_shared_options(shared, SharedOptions::from_map(options));
+    }
+    // Global SSH defaults should not prevent focused reports for other agents.
+    if config
+        .command
+        .agent
+        .as_deref()
+        .is_some_and(|agent| agent != "hermes")
+        || !matches!(
+            config.command.report.as_str(),
+            "daily" | "weekly" | "monthly" | "session"
+        )
+    {
+        shared.ssh.clear();
     }
     if config.pi_store_error.is_none() {
         shared.pi_stores = config.pi_stores.clone();
@@ -531,7 +573,7 @@ fn apply_config_to_agent_args(
 impl ccusage_cli::CliConfig for ConfigContext {
     fn config_error(&self) -> Option<&str> {
         self.active_pi_store_error()
-            .or(self.date_bound_error.as_deref())
+            .or(self.shared_option_error.as_deref())
     }
 
     fn apply_shared(&self, shared: &mut SharedArgs) {
@@ -565,7 +607,18 @@ impl ccusage_cli::CliConfig for ConfigContext {
 }
 
 fn apply_shared_options(shared: &mut SharedArgs, options: SharedOptions) {
-    // Invalid bounds are rejected in `ConfigContext::detect_date_bound_error`, so an
+    if let Some(last) = options.last {
+        shared.last = Some(last);
+    }
+    if let Some(hosts) = options.ssh {
+        shared.ssh.clear();
+        for host in hosts {
+            if !shared.ssh.contains(&host) {
+                shared.ssh.push(host);
+            }
+        }
+    }
+    // Invalid bounds are rejected in `ConfigContext::detect_shared_option_error`, so an
     // unnormalizable value here is left for that error to report.
     if let Some(since) = options.since.as_deref().and_then(normalize_date_bound) {
         shared.since = Some(since);
@@ -1347,8 +1400,39 @@ mod tests {
             },
             pi_stores: Vec::new(),
             pi_store_error: None,
-            date_bound_error: None,
+            shared_option_error: None,
         }
+    }
+
+    #[test]
+    fn loads_persistent_ssh_servers_and_last_thirty_days() {
+        let context = config_context_from_json(
+            r#"{"defaults":{"ssh":["crm","backup","crm"]},"commands":{"daily":{"last":30}}}"#,
+        );
+        assert!(context.config_error().is_none());
+        let mut shared = SharedArgs::with_defaults();
+        context.apply_shared(&mut shared);
+        assert_eq!(shared.ssh, ["crm", "backup"]);
+        assert_eq!(shared.last, Some(30));
+    }
+
+    #[test]
+    fn rejects_invalid_ssh_and_last_configuration() {
+        for config in [
+            r#"{"defaults":{"ssh":"crm"}}"#,
+            r#"{"defaults":{"ssh":["-bad"]}}"#,
+            r#"{"defaults":{"last":0}}"#,
+            r#"{"defaults":{"last":"30"}}"#,
+        ] {
+            assert!(config_context_from_json(config).config_error().is_some());
+        }
+    }
+
+    #[test]
+    fn discovers_standard_ccusage_config_directory() {
+        let fixture = fs_fixture!({});
+        let _guard = ccusage_test_support::EnvVarGuard::set("XDG_CONFIG_HOME", fixture.path(""));
+        assert!(discover_config_paths().contains(&fixture.path("ccusage/ccusage.json")));
     }
 
     fn config_context_from_json(raw: &str) -> ConfigContext {

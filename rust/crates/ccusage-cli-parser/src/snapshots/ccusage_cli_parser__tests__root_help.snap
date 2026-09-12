@@ -1,5 +1,5 @@
 ---
-source: crates/ccusage-cli/src/tests.rs
+source: crates/ccusage-cli-parser/src/tests.rs
 expression: help_text()
 ---
 USAGE:
@@ -75,3 +75,5 @@ OPTIONS:
   --config <config>                    Path to configuration file (default: auto-discovery)
   -h, --help                           Display this help message
   -v, --version                        Display this version
+  --ssh <host>                         Include Hermes usage from an SSH server (repeatable; adds to config ssh servers)
+  --no-ssh                             Disable configured SSH servers for this invocation

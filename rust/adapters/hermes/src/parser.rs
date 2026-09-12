@@ -21,22 +21,34 @@ pub(super) struct HermesEntry {
 }
 
 pub(super) fn read_session_row(statement: &sqlite::Statement<'_>) -> Option<HermesEntry> {
-    let session_id = statement.read::<String, _>(0).ok()?;
-    let model = statement.read::<String, _>(1).ok()?.trim().to_string();
+    read_session_fields(
+        |index| statement.read::<String, _>(index).ok(),
+        |index| read_f64(statement, index),
+        |index| read_u64(statement, index),
+    )
+}
+
+pub(super) fn read_session_fields(
+    text: impl Fn(usize) -> Option<String>,
+    number: impl Fn(usize) -> Option<f64>,
+    tokens: impl Fn(usize) -> u64,
+) -> Option<HermesEntry> {
+    let session_id = text(0)?;
+    let model = text(1)?.trim().to_string();
     if session_id.is_empty() || model.is_empty() {
         return None;
     }
-    let provider_raw = statement.read::<String, _>(2).ok();
-    let started_at = read_f64(statement, 3)?;
+    let provider_raw = text(2);
+    let started_at = number(3)?;
     let timestamp = timestamp_from_number(started_at)?;
-    let message_count = read_u64(statement, 4);
-    let input_tokens = read_u64(statement, 5);
-    let output_tokens = read_u64(statement, 6);
-    let cache_read_tokens = read_u64(statement, 7);
-    let cache_creation_tokens = read_u64(statement, 8);
-    let reasoning_tokens = read_u64(statement, 9);
-    let estimated_cost = read_non_negative_f64(statement, 10);
-    let actual_cost = read_non_negative_f64(statement, 11);
+    let message_count = tokens(4);
+    let input_tokens = tokens(5);
+    let output_tokens = tokens(6);
+    let cache_read_tokens = tokens(7);
+    let cache_creation_tokens = tokens(8);
+    let reasoning_tokens = tokens(9);
+    let estimated_cost = number(10).map(|value| value.max(0.0));
+    let actual_cost = number(11).map(|value| value.max(0.0));
     let cost_usd = actual_cost.or(estimated_cost);
     if input_tokens == 0
         && output_tokens == 0
@@ -83,6 +95,9 @@ fn read_u64(statement: &sqlite::Statement<'_>, index: usize) -> u64 {
 }
 
 fn read_f64(statement: &sqlite::Statement<'_>, index: usize) -> Option<f64> {
+    if statement.column_type(index).ok()? == sqlite::Type::Null {
+        return None;
+    }
     statement
         .read::<f64, _>(index)
         .ok()
@@ -93,10 +108,6 @@ fn read_f64(statement: &sqlite::Statement<'_>, index: usize) -> Option<f64> {
                 .ok()
                 .map(|value| value as f64)
         })
-}
-
-fn read_non_negative_f64(statement: &sqlite::Statement<'_>, index: usize) -> Option<f64> {
-    read_f64(statement, index).map(|value| value.max(0.0))
 }
 
 fn timestamp_from_number(value: f64) -> Option<TimestampMs> {

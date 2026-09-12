@@ -125,6 +125,9 @@ impl Cli {
         if let Some(message) = last_option_error(command.as_ref(), &shared) {
             return Err(message);
         }
+        if let Some(message) = ssh_option_error(command.as_ref(), &shared) {
+            return Err(message);
+        }
         Ok(Self { command, shared })
     }
 }
@@ -733,6 +736,20 @@ fn parse_shared_arg(parser: &mut ArgParser, shared: &mut SharedArgs) -> Result<(
         "-u" | "--until" => {
             shared.until = Some(parse_date_bound("--until", &parser.value_for("--until")?)?)
         }
+        "--no-ssh" => shared.ssh.clear(),
+        "--ssh" => {
+            let host = parser.value_for("--ssh").map_err(|_| {
+                "Invalid SSH destination; expected a host alias or user@hostname.".to_string()
+            })?;
+            if !ccusage_cli::valid_ssh_destination(&host) {
+                return Err(
+                    "Invalid SSH destination; use a host alias or user@hostname.".to_string(),
+                );
+            }
+            if !shared.ssh.contains(&host) {
+                shared.ssh.push(host);
+            }
+        }
         "--last" => shared.last = Some(parse_last_periods(&parser.value_for("--last")?)?),
         "-j" | "--json" => shared.json = true,
         "-m" | "--mode" => shared.mode = parse_cost_mode(&parser.value_for("--mode")?)?,
@@ -894,6 +911,7 @@ fn option_takes_value(arg: &str) -> bool {
             | "-u"
             | "--until"
             | "--last"
+            | "--ssh"
             | "-m"
             | "--mode"
             | "--debug-samples"
@@ -999,6 +1017,8 @@ fn is_shared_flag(arg: &str) -> bool {
             | "-u"
             | "--until"
             | "--last"
+            | "--ssh"
+            | "--no-ssh"
             | "-j"
             | "--json"
             | "-m"
@@ -1176,6 +1196,42 @@ fn parse_cost_source(value: &str) -> Result<CostSource, String> {
         "both" => Ok(CostSource::Both),
         _ => Err(format!("Invalid cost source '{value}'")),
     }
+}
+
+fn ssh_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Option<String> {
+    let (shared, supported) = match command {
+        None => (root_shared, true),
+        Some(Command::All(args)) => (&args.shared, true),
+        Some(Command::Daily(args)) => (&args.shared, false),
+        Some(Command::Monthly(shared)) => (shared, false),
+        Some(Command::Weekly(args)) => (&args.shared, false),
+        Some(Command::Session(args)) => (&args.shared, false),
+        Some(Command::Blocks(args)) => (&args.shared, false),
+        Some(Command::Statusline(_)) => (root_shared, false),
+        Some(Command::Hermes(args)) => (&args.shared, true),
+        Some(
+            Command::Codex(args)
+            | Command::OpenCode(args)
+            | Command::Amp(args)
+            | Command::Droid(args)
+            | Command::Codebuff(args)
+            | Command::Pi(args)
+            | Command::Goose(args)
+            | Command::Kilo(args)
+            | Command::Copilot(args)
+            | Command::Gemini(args)
+            | Command::Antigravity(args)
+            | Command::Kimi(args)
+            | Command::Qwen(args)
+            | Command::OpenClaw(args)
+            | Command::Grok(args)
+            | Command::ZCode(args),
+        ) => (&args.shared, false),
+    };
+    if !shared.ssh.is_empty() && !supported {
+        return Some("The --ssh option collects Hermes usage and is available on unified and Hermes reports.".to_string());
+    }
+    None
 }
 
 #[cfg(test)]
