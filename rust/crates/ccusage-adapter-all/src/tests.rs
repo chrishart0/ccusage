@@ -1266,3 +1266,24 @@ fn full_table_columns_include_cache_and_total_token_metrics() {
     );
     assert_eq!(headers.len(), aligns.len());
 }
+
+#[test]
+fn rolling_combines_days_across_months_and_preserves_agent_totals() {
+    let mut first = test_agent_rows("hermes").rows.remove(0);
+    first.period = "2026-08-31".to_string();
+    first.total_cost = 0.5;
+    let mut second = test_agent_rows("codex").rows.remove(0);
+    second.period = "2026-09-01".to_string();
+    second.input_tokens = 4;
+    second.total_tokens = 4;
+    second.total_cost = 1.5;
+    let daily = aggregate_rows(vec![first, second], AgentReportKind::Daily);
+    let rows = rolling::summarize(daily, 7);
+    assert_eq!(rows.len(), 1);
+    assert_eq!(rows[0].period, "Last 7 days");
+    assert_eq!(rows[0].input_tokens, 5);
+    assert_eq!(rows[0].total_cost, 2.0);
+    let agents = rows[0].agent_breakdowns.as_ref().unwrap();
+    assert_eq!(agents.len(), 2);
+    assert_eq!(agents.iter().map(|row| row.total_tokens).sum::<u64>(), 5);
+}

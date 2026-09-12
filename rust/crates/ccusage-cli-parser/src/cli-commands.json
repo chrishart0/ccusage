@@ -1,8 +1,14 @@
 {
 	"combinedOptions": {
 		"agent_period_options": ["agent_options", "last_options"],
-		"all_agent_period_options": ["all_agent_options", "last_options"],
-		"all_agent_session_options": ["all_agent_options", "session_options"],
+		"all_agent_period_options": [
+			"all_agent_options",
+			"last_options",
+			"ssh_options",
+			"openai_options",
+			"html_options"
+		],
+		"all_agent_session_options": ["all_agent_options", "session_options", "ssh_options"],
 		"blocks_combined_options": ["shared_claude_options", "blocks_options"],
 		"claude_daily_options": ["shared_claude_options", "daily_options", "last_options"],
 		"claude_monthly_options": ["shared_claude_options", "last_options"],
@@ -12,7 +18,10 @@
 		"openclaw_combined_options": ["agent_options", "openclaw_options"],
 		"openclaw_period_options": ["agent_options", "openclaw_options", "last_options"],
 		"pi_combined_options": ["agent_options", "pi_options"],
-		"pi_period_options": ["agent_options", "pi_options", "last_options"]
+		"pi_period_options": ["agent_options", "pi_options", "last_options"],
+		"hermes_period_options": ["agent_options", "last_options", "ssh_options"],
+		"hermes_session_options": ["agent_options", "ssh_options"],
+		"rolling_report_options": ["rolling_options", "ssh_options", "openai_options", "html_options"]
 	},
 	"root": {
 		"usage": ["ccusage [daily] <OPTIONS>", "ccusage <COMMANDS>"],
@@ -20,6 +29,10 @@
 			{
 				"name": "daily",
 				"description": "Show all detected coding (agent) CLI usage grouped by date"
+			},
+			{
+				"name": "rolling",
+				"description": "Show one summary for the last N days (default: 30)"
 			},
 			{
 				"name": "monthly",
@@ -116,6 +129,12 @@
 		]
 	},
 	"pages": [
+		{
+			"path": ["rolling"],
+			"description": "One summary for the last N calendar days, including today",
+			"usage": "ccusage rolling [days] <OPTIONS>",
+			"options": "rolling_report_options"
+		},
 		{
 			"path": ["daily"],
 			"description": "Show all detected coding (agent) CLI usage grouped by date",
@@ -437,19 +456,19 @@
 			"path": ["hermes", "daily"],
 			"description": "Show Hermes usage grouped by date",
 			"usage": "ccusage hermes daily <OPTIONS>",
-			"options": "agent_period_options"
+			"options": "hermes_period_options"
 		},
 		{
 			"path": ["hermes", "monthly"],
 			"description": "Show Hermes usage grouped by month",
 			"usage": "ccusage hermes monthly <OPTIONS>",
-			"options": "agent_period_options"
+			"options": "hermes_period_options"
 		},
 		{
 			"path": ["hermes", "session"],
 			"description": "Show Hermes usage grouped by session",
 			"usage": "ccusage hermes session <OPTIONS>",
-			"options": "agent_options"
+			"options": "hermes_session_options"
 		},
 		{
 			"path": ["pi"],

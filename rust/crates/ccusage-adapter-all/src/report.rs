@@ -211,7 +211,36 @@ pub(super) fn print_table(
     shared: &SharedArgs,
     detected_agents: &[&'static str],
 ) -> Result<()> {
-    print_box_title(&all_report_title(kind, rows, detected_agents), shared);
+    print_table_inner(
+        rows,
+        kind,
+        shared,
+        &all_report_title(kind, rows, detected_agents),
+        false,
+    )
+}
+
+pub(super) fn print_rolling_table(
+    rows: &[AllRow],
+    shared: &SharedArgs,
+    detected_agents: &[&'static str],
+    days: u32,
+) -> Result<()> {
+    let title = format!(
+        "Coding (Agent) CLI Usage Report - Last {days} days\nDetected: {}",
+        detected_agent_labels(rows, detected_agents)
+    );
+    print_table_inner(rows, AgentReportKind::Daily, shared, &title, true)
+}
+
+fn print_table_inner(
+    rows: &[AllRow],
+    kind: AgentReportKind,
+    shared: &SharedArgs,
+    title: &str,
+    rolling: bool,
+) -> Result<()> {
+    print_box_title(title, shared);
     if rows.is_empty() {
         eprintln!("No usage data found.");
         return Ok(());
@@ -224,7 +253,10 @@ pub(super) fn print_table(
         terminal_width,
         crate::USAGE_COMPACT_WIDTH_THRESHOLD,
     );
-    let (headers, aligns) = all_table_columns(kind, compact, shared.no_cost);
+    let (mut headers, aligns) = all_table_columns(kind, compact, shared.no_cost);
+    if rolling {
+        headers[0] = "Period";
+    }
     let mut table = SimpleTable::new(headers, aligns, crate::terminal_style(shared))
         .with_terminal_width(terminal_width)
         .with_date_compaction(true);

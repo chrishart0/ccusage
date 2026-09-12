@@ -9,6 +9,7 @@ use super::Cli;
 /// can only be resolved once the command is known: `daily --last 1` is today,
 /// `weekly --last 1` is the current week, `monthly --last 1` is this month.
 pub(crate) fn resolve(cli: &mut Cli) -> Result<(), String> {
+    let rolling = matches!(cli.command, Some(Command::Rolling(_)));
     let Some((shared, unit, start_of_week)) = window_target(cli) else {
         return Ok(());
     };
@@ -20,6 +21,9 @@ pub(crate) fn resolve(cli: &mut Cli) -> Result<(), String> {
         return Err(format!("Could not resolve --last {last} from today's date"));
     };
     shared.since = Some(since);
+    if rolling {
+        shared.until = Some(today.replace('-', ""));
+    }
     Ok(())
 }
 
@@ -35,6 +39,7 @@ fn window_target(cli: &mut Cli) -> Option<(&mut SharedArgs, PeriodUnit, WeekDay)
         }
         Some(
             Command::All(args)
+            | Command::Rolling(args)
             | Command::Codex(args)
             | Command::OpenCode(args)
             | Command::Amp(args)
@@ -111,6 +116,25 @@ mod tests {
             Some(Command::Monthly(shared)) => shared.since,
             _ => panic!("unexpected command"),
         }
+    }
+
+    #[test]
+    fn rolling_window_ends_today_and_keeps_the_requested_day_count() {
+        let mut cli = Cli {
+            command: Some(Command::Rolling(agent_command(AgentReportKind::Daily, 7))),
+            shared: SharedArgs::with_defaults(),
+        };
+        resolve(&mut cli).unwrap();
+        let Some(Command::Rolling(args)) = cli.command else {
+            panic!("rolling");
+        };
+        let today = format_date(utc_now(), args.shared.timezone.as_deref());
+        assert_eq!(args.shared.until, Some(today.replace('-', "")));
+        assert_eq!(
+            args.shared.since,
+            last_periods_since(PeriodUnit::Day, 7, &today, WeekDay::Monday)
+        );
+        assert_eq!(args.shared.last, Some(7));
     }
 
     #[test]

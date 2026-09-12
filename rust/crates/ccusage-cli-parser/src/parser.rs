@@ -125,6 +125,9 @@ impl Cli {
         if let Some(message) = last_option_error(command.as_ref(), &shared) {
             return Err(message);
         }
+        if let Some(message) = report_option_error(command.as_ref(), &shared) {
+            return Err(message);
+        }
         Ok(Self { command, shared })
     }
 }
@@ -160,6 +163,29 @@ fn parse_command(
         ));
     }
     match command {
+        "rolling" => {
+            let mut shared = shared;
+            if parser.peek().is_some_and(|arg| !arg.starts_with('-')) {
+                shared.last = Some(parse_last_periods(
+                    &parser.next().expect("peeked day count"),
+                )?);
+            }
+            let Command::All(mut args) = parse_all_command(
+                parser,
+                shared,
+                AgentReportKind::Daily,
+                config,
+                root_all_options,
+            )?
+            else {
+                unreachable!()
+            };
+            args.shared.last.get_or_insert(30);
+            if args.sections.is_some() {
+                return Err("The rolling view cannot be combined with --sections.".to_string());
+            }
+            Ok(Command::Rolling(args))
+        }
         "daily" => parse_all_command(
             parser,
             shared,
@@ -359,7 +385,10 @@ fn parse_command(
 }
 
 fn accepts_root_all_options(command: &str) -> bool {
-    matches!(command, "daily" | "monthly" | "weekly" | "session")
+    matches!(
+        command,
+        "daily" | "monthly" | "weekly" | "session" | "rolling"
+    )
 }
 
 fn parse_root_all_arg(
@@ -733,6 +762,23 @@ fn parse_shared_arg(parser: &mut ArgParser, shared: &mut SharedArgs) -> Result<(
         "-u" | "--until" => {
             shared.until = Some(parse_date_bound("--until", &parser.value_for("--until")?)?)
         }
+        "--html" => shared.html = Some(PathBuf::from(parser.value_for("--html")?)),
+        "--no-openai" => shared.openai_accounts.clear(),
+        "--refresh-openai" => shared.refresh_openai = true,
+        "--no-ssh" => shared.ssh.clear(),
+        "--ssh" => {
+            let host = parser.value_for("--ssh").map_err(|_| {
+                "Invalid SSH destination; expected a host alias or user@hostname.".to_string()
+            })?;
+            if !ccusage_cli::valid_ssh_destination(&host) {
+                return Err(
+                    "Invalid SSH destination; use a host alias or user@hostname.".to_string(),
+                );
+            }
+            if !shared.ssh.contains(&host) {
+                shared.ssh.push(host);
+            }
+        }
         "--last" => shared.last = Some(parse_last_periods(&parser.value_for("--last")?)?),
         "-j" | "--json" => shared.json = true,
         "-m" | "--mode" => shared.mode = parse_cost_mode(&parser.value_for("--mode")?)?,
@@ -765,6 +811,7 @@ fn is_command(arg: &str) -> bool {
         arg,
         "daily"
             | "monthly"
+            | "rolling"
             | "weekly"
             | "session"
             | "blocks"
@@ -894,6 +941,8 @@ fn option_takes_value(arg: &str) -> bool {
             | "-u"
             | "--until"
             | "--last"
+            | "--html"
+            | "--ssh"
             | "-m"
             | "--mode"
             | "--debug-samples"
@@ -999,6 +1048,11 @@ fn is_shared_flag(arg: &str) -> bool {
             | "-u"
             | "--until"
             | "--last"
+            | "--html"
+            | "--ssh"
+            | "--no-ssh"
+            | "--no-openai"
+            | "--refresh-openai"
             | "-j"
             | "--json"
             | "-m"
@@ -1046,7 +1100,9 @@ fn parse_last_periods(value: &str) -> Result<u32, String> {
 fn last_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Option<String> {
     let (shared, supported) = match command {
         None => (root_shared, true),
-        Some(Command::All(args)) => (&args.shared, args.kind != AgentReportKind::Session),
+        Some(Command::All(args) | Command::Rolling(args)) => {
+            (&args.shared, args.kind != AgentReportKind::Session)
+        }
         Some(Command::Daily(args)) => (&args.shared, true),
         Some(Command::Monthly(shared)) => (shared, true),
         Some(Command::Weekly(args)) => (&args.shared, true),
@@ -1176,6 +1232,57 @@ fn parse_cost_source(value: &str) -> Result<CostSource, String> {
         "both" => Ok(CostSource::Both),
         _ => Err(format!("Invalid cost source '{value}'")),
     }
+}
+
+fn report_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Option<String> {
+    let (shared, supported) = match command {
+        None => (root_shared, true),
+        Some(Command::All(args) | Command::Rolling(args)) => (&args.shared, true),
+        Some(Command::Daily(args)) => (&args.shared, false),
+        Some(Command::Monthly(shared)) => (shared, false),
+        Some(Command::Weekly(args)) => (&args.shared, false),
+        Some(Command::Session(args)) => (&args.shared, false),
+        Some(Command::Blocks(args)) => (&args.shared, false),
+        Some(Command::Statusline(_)) => (root_shared, false),
+        Some(Command::Hermes(args)) => (&args.shared, true),
+        Some(
+            Command::Codex(args)
+            | Command::OpenCode(args)
+            | Command::Amp(args)
+            | Command::Droid(args)
+            | Command::Codebuff(args)
+            | Command::Pi(args)
+            | Command::Goose(args)
+            | Command::Kilo(args)
+            | Command::Copilot(args)
+            | Command::Gemini(args)
+            | Command::Antigravity(args)
+            | Command::Kimi(args)
+            | Command::Qwen(args)
+            | Command::OpenClaw(args)
+            | Command::Grok(args)
+            | Command::ZCode(args),
+        ) => (&args.shared, false),
+    };
+    if shared.html.is_some() {
+        let valid = match command {
+            None => true,
+            Some(Command::All(args) | Command::Rolling(args)) => {
+                args.kind != AgentReportKind::Session && args.sections.is_none()
+            }
+            _ => false,
+        };
+        if !valid {
+            return Some("--html supports unified daily, weekly, monthly, and rolling reports without --sections".into());
+        }
+        if shared.json || shared.jq.is_some() {
+            return Some("--html cannot be combined with --json or --jq".into());
+        }
+    }
+    if !shared.ssh.is_empty() && !supported {
+        return Some("The --ssh option is available on unified reports (all agents) and focused Hermes reports.".to_string());
+    }
+    None
 }
 
 #[cfg(test)]

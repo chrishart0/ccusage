@@ -11,8 +11,31 @@ use schemars::{JsonSchema, r#gen::SchemaSettings};
 pub const NAMED_PI_STORE_NAME_PATTERN: &str = "^[a-z][a-z0-9_-]{0,31}$";
 
 #[derive(Debug, Default, Deserialize, JsonSchema)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct OpenAiConfig {
+    /// Private dotenv file; defaults to ~/.config/ccusage/openai.env.
+    pub env_file: Option<String>,
+    /// History start, default 2020-01-01 (OpenAI Platform history).
+    pub since: Option<String>,
+    pub accounts: Vec<OpenAiAccountConfig>,
+}
+#[derive(Debug, Default, Deserialize, JsonSchema)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct OpenAiAccountConfig {
+    pub name: String,
+    /// Name of the environment variable holding an organization admin key.
+    pub key_env: String,
+    pub since: Option<String>,
+    /// Optional project filters; omit to include the entire organization.
+    #[serde(default)]
+    pub project_ids: Vec<String>,
+}
+
+#[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct CcusageConfig {
+    /// Named OpenAI Platform accounts, with credentials referenced by environment variable.
+    pub openai: Option<OpenAiConfig>,
     /// JSON Schema URL for validation and autocomplete.
     #[serde(rename = "$schema")]
     pub schema_url: Option<String>,
@@ -61,6 +84,8 @@ pub struct CcusageConfig {
 #[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct RootCommandsConfig {
+    /// One summary for the most recent N days; defaults to 30.
+    pub rolling: Option<SharedOptions>,
     pub daily: Option<DailyOptions>,
     pub weekly: Option<WeeklyOptions>,
     pub monthly: Option<SharedOptions>,
@@ -358,6 +383,11 @@ pub struct ZCodeCommandsConfig {
 #[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct SharedOptions {
+    /// Most recent calendar periods (daily: today and the preceding N-1 days).
+    #[schemars(range(min = 1))]
+    pub last: Option<u32>,
+    /// SSH destinations to collect all supported agents from in unified reports.
+    pub ssh: Option<Vec<String>>,
     /// Filter from date (YYYY-MM-DD or YYYYMMDD).
     pub since: Option<String>,
     /// Filter until date (inclusive).
@@ -607,6 +637,17 @@ pub struct ConfigPricingOverride {
 impl SharedOptions {
     pub fn from_map(map: &Map<String, Value>) -> Self {
         Self {
+            last: map
+                .get("last")
+                .and_then(Value::as_u64)
+                .and_then(|n| u32::try_from(n).ok()),
+            ssh: map.get("ssh").and_then(Value::as_array).map(|hosts| {
+                hosts
+                    .iter()
+                    .filter_map(Value::as_str)
+                    .map(str::to_string)
+                    .collect()
+            }),
             since: string_option(map, "since"),
             until: string_option(map, "until"),
             json: bool_option(map, "json"),
@@ -1070,6 +1111,8 @@ mod tests {
             "offline",
             "order",
             "pricingOverrides",
+            "last",
+            "ssh",
             "since",
             "singleThread",
             "timezone",
@@ -1205,6 +1248,7 @@ mod tests {
                 "kimi",
                 "opencode",
                 "openclaw",
+                "openai",
                 "pi",
                 "qwen",
                 "zcode",

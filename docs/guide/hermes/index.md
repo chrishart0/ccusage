@@ -24,7 +24,7 @@ pnpm dlx ccusage hermes --help
 
 ## Data Source
 
-The CLI reads Hermes Agent session rows from `$HERMES_HOME/state.db`. When `HERMES_HOME` is not set, ccusage checks `~/.hermes/state.db`.
+The CLI reads Hermes Agent session rows from `$HERMES_HOME/state.db`. When `HERMES_HOME` is not set, ccusage checks `~/.hermes/state.db`. It also discovers named `profiles/*/state.db` databases under each root, excluding `state-snapshots` backups.
 
 ```bash
 HERMES_HOME="$HOME/.hermes" ccusage hermes daily
@@ -68,3 +68,9 @@ Ensure the database exists at `$HERMES_HOME/state.db` or `~/.hermes/state.db`. I
 ::: details Costs showing as $0.00
 If Hermes has no recorded cost and a model is not in LiteLLM or ccusage's bundled fallback pricing, the calculated cost will be $0.00.
 :::
+
+## SSH servers
+
+This fork can combine local Hermes usage with configured SSH servers. See
+[SSH collection and a rolling-days view](/guide/config-files#ssh-collection-and-a-rolling-days-view-fork)
+for the config file, prerequisites, and collection behavior.

@@ -197,6 +197,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
       },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
+      },
       "mode": {
         "description": "Cost calculation mode.",
         "enum": [
@@ -309,6 +316,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Codex speed normalization strategy.",
         "type": "string"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -376,6 +391,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
       },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
+      },
       "mode": {
         "default": "auto",
         "description": "Cost calculation mode.",
@@ -483,6 +505,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Disable parallel file processing.",
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
+      },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
       },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
@@ -549,6 +579,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
       },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
+      },
       "mode": {
         "default": "auto",
         "description": "Cost calculation mode.",
@@ -657,6 +694,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -714,6 +759,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Output in JSON format.",
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
+      },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
       },
       "mode": {
         "description": "Cost calculation mode.",
@@ -821,6 +873,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -885,6 +945,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Output in JSON format.",
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
+      },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
       },
       "mode": {
         "default": "auto",
@@ -994,6 +1061,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -1051,6 +1126,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Output in JSON format.",
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
+      },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
       },
       "mode": {
         "description": "Cost calculation mode.",
@@ -1158,6 +1240,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -1221,6 +1311,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Output in JSON format.",
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
+      },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
       },
       "mode": {
         "description": "Cost calculation mode.",
@@ -1333,6 +1430,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
       },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
+      },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",
         "markdownDescription": "Timezone for date grouping (IANA).",
@@ -1363,6 +1468,7 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
     "hermes",
     "kilo",
     "kimi",
+    "openai",
     "openclaw",
     "opencode",
     "pi",
@@ -1421,6 +1527,13 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Output in JSON format.",
         "markdownDescription": "Output in JSON format.",
         "type": "boolean"
+      },
+      "last": {
+        "description": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "format": "uint32",
+        "markdownDescription": "Most recent calendar periods (daily: today and the preceding N-1 days).",
+        "minimum": 1.0,
+        "type": "integer"
       },
       "mode": {
         "default": "auto",
@@ -1529,6 +1642,14 @@ expression: "json!({\n    \"rootRef\": schema[\"$ref\"], \"rootProperties\":\n  
         "description": "Disable parallel file processing.",
         "markdownDescription": "Disable parallel file processing.",
         "type": "boolean"
+      },
+      "ssh": {
+        "description": "SSH destinations to collect all supported agents from in unified reports.",
+        "items": {
+          "type": "string"
+        },
+        "markdownDescription": "SSH destinations to collect all supported agents from in unified reports.",
+        "type": "array"
       },
       "timezone": {
         "description": "Timezone for date grouping (IANA).",

@@ -75,6 +75,9 @@ Skip the date arithmetic when you only want the days just gone:
 # Today
 ccusage daily --last 1
 
+# The last 30 days, including today
+ccusage daily --last 30
+
 # The last seven days, including today
 ccusage daily --last 7
 ```
@@ -304,3 +307,8 @@ ccusage daily --instances --since 20260501
 - [Monthly Usage](/guide/monthly-reports) - Aggregate by month
 - [Session Usage](/guide/session-reports) - Per-conversation analysis
 - [Claude Code](/guide/claude/) - Claude Code-specific setup and features
+
+For a separate combined summary, use `ccusage rolling` (30 days) or
+`ccusage rolling 7` (seven days). Set its default under `commands.rolling.last`
+and configure SSH servers in your
+[configuration file](/guide/config-files#ssh-collection-and-a-rolling-days-view-fork).

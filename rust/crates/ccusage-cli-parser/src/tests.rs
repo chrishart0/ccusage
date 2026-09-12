@@ -147,6 +147,7 @@ fn command_snapshot(command: Option<Command>) -> Value {
     match command {
         None => Value::Null,
         Some(Command::All(args)) => agent_command_snapshot("all", args),
+        Some(Command::Rolling(args)) => agent_command_snapshot("rolling", args),
         Some(Command::Daily(args)) => json!({
             "type": "daily",
             "shared": shared_snapshot(&args.shared),
@@ -1370,4 +1371,120 @@ fn reports_named_pi_store_validation_through_cli_config_error_path() {
         error,
         "Invalid ccusage config: pi.stores name 'codex' collides with a built-in agent"
     );
+}
+
+#[test]
+fn ssh_hosts_are_repeatable_and_deduplicated() {
+    let cli = parse(&[
+        "ccusage", "hermes", "daily", "--last", "30", "--ssh", "crm", "--ssh", "backup", "--ssh",
+        "crm",
+    ]);
+    let Some(Command::Hermes(args)) = cli.command else {
+        panic!("expected Hermes");
+    };
+    assert_eq!(args.shared.ssh, ["crm", "backup"]);
+    assert_eq!(args.shared.last, Some(30));
+}
+
+#[test]
+fn ssh_rejects_unsafe_destinations() {
+    for host in [
+        "-oProxyCommand=bad",
+        "host;touch /tmp/bad",
+        "user@host extra",
+        "",
+    ] {
+        assert!(parse_error(&["ccusage", "--ssh", host]).contains("SSH destination"));
+    }
+}
+
+#[test]
+fn ssh_rejects_reports_that_do_not_collect_hermes() {
+    assert!(parse_error(&["ccusage", "codex", "daily", "--ssh", "crm"]).contains("--ssh"));
+}
+
+#[test]
+fn config_ssh_defaults_can_be_extended_disabled_or_ignored_by_other_agents() {
+    let fixture = fs_fixture!({"ccusage.json": r#"{"defaults":{"ssh":["crm"]},"commands":{"daily":{"last":30}}}"#});
+    for (tokens, hosts, last) in [
+        (vec!["daily"], vec!["crm"], 30),
+        (
+            vec!["hermes", "daily", "--ssh", "backup", "--last", "7"],
+            vec!["crm", "backup"],
+            7,
+        ),
+        (vec!["daily", "--no-ssh"], vec![], 30),
+        (vec!["codex", "daily"], vec![], 30),
+    ] {
+        let mut args = tokens.into_iter().map(str::to_string).collect::<Vec<_>>();
+        args.extend([
+            "--config".to_string(),
+            fixture.path("ccusage.json").to_string_lossy().into_owned(),
+        ]);
+        let config = ccusage_config::ConfigContext::from_args(&args);
+        let mut cli_args = vec!["ccusage"];
+        cli_args.extend(args.iter().map(String::as_str));
+        let cli = parse_with_config(&cli_args, &config);
+        let Some(Command::All(args) | Command::Hermes(args) | Command::Codex(args)) = cli.command
+        else {
+            panic!("expected agent report");
+        };
+        assert_eq!(args.shared.ssh, hosts);
+        assert_eq!(args.shared.last, Some(last));
+    }
+}
+
+#[test]
+fn rolling_is_a_separate_view_with_an_optional_day_count() {
+    for (argv, days) in [
+        (vec!["ccusage", "rolling"], 30),
+        (vec!["ccusage", "rolling", "7"], 7),
+    ] {
+        let Some(Command::Rolling(args)) = parse(&argv).command else {
+            panic!("expected rolling view");
+        };
+        assert_eq!(args.shared.last, Some(days));
+    }
+    assert!(parse(&["ccusage"]).shared.last.is_none());
+}
+
+#[test]
+fn rolling_rejects_invalid_windows_and_sections() {
+    for argv in [
+        vec!["ccusage", "rolling", "0"],
+        vec!["ccusage", "rolling", "bad"],
+        vec!["ccusage", "rolling", "--sections", "monthly"],
+        vec!["ccusage", "rolling", "--since", "20260101"],
+    ] {
+        assert!(Cli::parse_from(argv.iter().map(OsString::from)).is_err());
+    }
+}
+
+#[test]
+fn html_export_accepts_period_reports_and_rejects_conflicting_outputs() {
+    for command in ["daily", "weekly", "monthly", "rolling"] {
+        let cli = parse(&["ccusage", command, "--html", "usage.html"]);
+        let Some(Command::All(args) | Command::Rolling(args)) = cli.command else {
+            panic!("expected unified report");
+        };
+        assert_eq!(
+            args.shared.html.as_deref(),
+            Some(std::path::Path::new("usage.html"))
+        );
+    }
+    for argv in [
+        vec!["ccusage", "daily", "--html", "usage.html", "--json"],
+        vec!["ccusage", "session", "--html", "usage.html"],
+        vec!["ccusage", "codex", "daily", "--html", "usage.html"],
+        vec![
+            "ccusage",
+            "daily",
+            "--html",
+            "usage.html",
+            "--sections",
+            "monthly",
+        ],
+    ] {
+        assert!(Cli::parse_from(argv.iter().map(OsString::from)).is_err());
+    }
 }

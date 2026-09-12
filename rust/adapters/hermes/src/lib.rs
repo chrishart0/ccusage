@@ -4,6 +4,7 @@ use ccusage_core::*;
 mod loader;
 mod parser;
 mod paths;
+mod remote;
 mod report;
 
 use crate::{

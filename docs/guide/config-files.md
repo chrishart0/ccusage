@@ -2,6 +2,82 @@
 
 ccusage supports JSON configuration files for persistent settings. Configuration files allow you to set default options for all commands or customize behavior for specific commands without repeating options every time.
 
+## SSH collection and a rolling-days view (fork)
+
+Save this as `~/.config/ccusage/ccusage.json` (or
+`$XDG_CONFIG_HOME/ccusage/ccusage.json`):
+
+```json
+{
+	"defaults": {
+		"ssh": ["crm"],
+		"timezone": "America/New_York"
+	},
+	"commands": {
+		"rolling": { "last": 30 }
+	}
+}
+```
+
+Run `ccusage rolling` for one combined summary of all locally detected agents and
+all supported agent usage from `crm` over the last 30 calendar days, including today.
+`ccusage rolling 7` changes the window to seven days. Normal daily and monthly
+reports have no default date filter. Add more SSH aliases or
+`user@hostname` destinations to `ssh`. Your existing SSH config supplies keys,
+ports, and jump hosts. Install the same fork as `~/.local/bin/ccusage-fork` on
+each server, using a binary built for that server's operating system and architecture.
+The collector runs native source discovery there. Hermes databases live under `${HERMES_HOME:-~/.hermes}`.
+Collection includes `state.db` and named `profiles/*/state.db` databases, but
+excludes `state-snapshots` backups.
+
+```sh
+ccusage                          # Normal daily report, all dates
+ccusage rolling                  # One summary for the last 30 days
+ccusage rolling 7                # One summary for the last 7 days
+ccusage hermes daily             # Local and remote Hermes only
+ccusage daily --ssh another-host  # Add a server for this run
+ccusage daily --no-ssh            # Skip SSH for this run
+ccusage rolling --last 7          # Equivalent explicit day-count option
+```
+
+Unified SSH collection supports every built-in agent. It runs a JSON report on
+the server and transfers summarized counters, model names, and session IDs, not
+conversations. Source labels are `ssh:<host>:<agent>` and remote session IDs start
+with `ssh:<host>:`. The remote process uses embedded pricing, an empty config,
+and `--no-ssh --no-openai` to prevent recursion and duplicate Platform accounts.
+Custom remote config paths and named pi stores are not imported. The focused
+`ccusage hermes` reports retain the Python 3 read-only SQLite collector, including
+committed WAL data. Repeated destinations and Hermes session IDs within a host
+are counted once. Different aliases for the same
+server are distinct sources, so configure each server only once.
+
+Connection/authentication errors and collector errors fail
+the report instead of showing incomplete totals. Each connection has a 10-second
+connect timeout and a 120-second collection timeout (60 seconds for focused Hermes). SSH uses batch authentication
+and your normal host-key verification; establish the connection with `ssh crm`
+first if necessary. `--offline` disables pricing fetches, but still collects SSH
+usage; use `--no-ssh` to skip remote collection. Servers with no supported data contribute no rows.
+
+`last` counts the report's calendar periods (days for daily, weeks for weekly,
+months for monthly). For the rolling view it always counts days. Set
+`commands.rolling.last` to change that view's default without filtering other
+reports. Rolling JSON uses a `rolling` array with one summary (empty when no usage
+exists), plus `window` bounds and `totals`.
+It cannot be combined with `since`, `until`, or multiple `sections`. Hermes
+attributes cumulative session counters to the session start date, as it does for
+local data; these are not per-request daily measurements.
+
+A project's `.ccusage/ccusage.json` takes precedence over the user config.
+Only the first discovered file is loaded. `--config /path/to/ccusage.json` selects
+an explicit file. Configured SSH servers are ignored by focused reports for other
+agents. `--ssh` appends destinations; `--no-ssh` clears them in argument order.
+
+## OpenAI Platform accounts (fork)
+
+See [OpenAI Platform](./openai-platform.md) to add named accounts using admin keys
+from a private dotenv file. Normal period reports collect all available history;
+rolling reports request their selected window.
+
 ## Quick Start
 
 ### 1. Use Schema for IDE Support
@@ -84,9 +160,10 @@ ccusage monthly
 ccusage searches for configuration files in these locations (in priority order):
 
 1. **Local project**: `.ccusage/ccusage.json` (higher priority)
-2. **User config**: `~/.claude/ccusage.json` or `~/.config/claude/ccusage.json` (lower priority)
+2. **ccusage user config**: `$XDG_CONFIG_HOME/ccusage/ccusage.json` (defaults to `~/.config/ccusage/ccusage.json`)
+3. **Legacy user config**: `~/.claude/ccusage.json` or `~/.config/claude/ccusage.json` (lower priority)
 
-Configuration files are merged in priority order, with local project settings overriding user settings.
+The first matching configuration file is used; files are not merged.
 If you pass a custom config file using `--config`, it will override both local and user configs.
 Note that configuration files are not required; if none are found, ccusage will use built-in defaults.
 Also, if you have multiple config files, only the first one found will be used.

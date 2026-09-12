@@ -1,5 +1,5 @@
 ---
-source: crates/ccusage-cli/src/tests.rs
+source: crates/ccusage-cli-parser/src/tests.rs
 expression: help_text()
 ---
 USAGE:
@@ -8,6 +8,7 @@ USAGE:
 
 COMMANDS:
   daily                      Show all detected coding (agent) CLI usage grouped by date
+  rolling                    Show one summary for the last N days (default: 30)
   monthly                    Show all detected coding (agent) CLI usage grouped by month
   weekly                     Show all detected coding (agent) CLI usage grouped by week
   session                    Show all detected coding (agent) CLI usage grouped by session
@@ -34,6 +35,7 @@ COMMANDS:
 
 For more info, run any command with the `--help` flag:
   ccusage daily --help
+  ccusage rolling --help
   ccusage monthly --help
   ccusage weekly --help
   ccusage session --help
@@ -75,3 +77,8 @@ OPTIONS:
   --config <config>                    Path to configuration file (default: auto-discovery)
   -h, --help                           Display this help message
   -v, --version                        Display this version
+  --ssh <host>                         Include an SSH server (all agents in unified reports; Hermes in focused Hermes reports)
+  --no-ssh                             Disable configured SSH servers for this invocation
+  --no-openai                          Skip configured OpenAI Platform accounts for this invocation
+  --refresh-openai                     Refresh OpenAI usage instead of using the five-minute cache
+  --html <path>                        Save a standalone HTML report with totals and charts over time

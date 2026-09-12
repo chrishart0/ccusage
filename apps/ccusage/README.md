@@ -23,6 +23,45 @@
 
 > Analyze coding (agent) CLI token usage and costs from local data.
 
+## Fork additions
+
+This branch is not published to npm; `npx ccusage` still runs upstream.
+Build this fork from the repository root:
+
+```sh
+cargo build --manifest-path rust/Cargo.toml -p ccusage --bin ccusage --release --features fetch-litellm-pricing
+mkdir -p ~/.local/bin
+cp rust/target/release/ccusage ~/.local/bin/ccusage-fork
+ccusage-fork
+```
+
+Use `ccusage-fork` in place of `ccusage` in the examples below.
+
+Configure SSH servers and a separate rolling-days summary in
+`~/.config/ccusage/ccusage.json`:
+
+```json
+{
+	"defaults": { "ssh": ["crm"], "timezone": "America/New_York" },
+	"commands": { "rolling": { "last": 30 } }
+}
+```
+
+Run `ccusage rolling` for a 30-day summary or `ccusage rolling 7` for seven days.
+Normal daily and monthly reports remain unfiltered. Reports combine local usage with all supported agents from the
+configured SSH servers. Install this fork as `~/.local/bin/ccusage-fork` on each server.
+`--ssh another-host` adds a server, and `--no-ssh` skips SSH collection.
+
+You can also configure named OpenAI Platform accounts with admin keys stored in
+`~/.config/ccusage/openai.env`. Daily/monthly reports collect all available API
+history, and rolling reports use their selected window. See the
+[OpenAI Platform guide](https://github.com/chrishart0/ccusage/blob/main/docs/guide/openai-platform.md).
+See the [configuration guide](https://github.com/chrishart0/ccusage/blob/main/docs/guide/config-files.md) for behavior and limits.
+
+Generate a portable report with charts and totals using `ccusage monthly --html usage.html`
+or `ccusage rolling 30 --html usage.html`. Open the file to explore usage over time,
+by agent and model. See the [HTML report guide](https://github.com/chrishart0/ccusage/blob/main/docs/guide/html-reports.md).
+
 ## Major Sponsors
 
 <div align="center">

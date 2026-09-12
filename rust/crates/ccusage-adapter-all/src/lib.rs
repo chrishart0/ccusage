@@ -1,5 +1,9 @@
+mod html;
 mod loader;
+mod remote;
 mod report;
+mod rolling;
+pub use rolling::run as run_rolling;
 mod types;
 
 use ccusage_adapter_codex::CodexGroup;
@@ -39,6 +43,9 @@ pub fn run(args: AgentCommandArgs) -> Result<()> {
     let kind = args.kind;
     let shared = args.shared;
     let include_agents = args.by_agent;
+    if shared.html.is_some() {
+        return html::run(kind, &shared);
+    }
     if let Some(sections) = args.sections {
         let sections = requested_sections(kind, sections);
         let result = loader::load_sections(&sections, &shared)?;

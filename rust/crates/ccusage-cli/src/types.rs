@@ -5,6 +5,7 @@ use std::{
 
 pub enum Command {
     All(AgentCommandArgs),
+    Rolling(AgentCommandArgs),
     Daily(DailyArgs),
     Monthly(SharedArgs),
     Weekly(WeeklyArgs),
@@ -37,7 +38,13 @@ pub struct SharedArgs {
     /// Number of most recent report periods to keep, resolved into `since` by
     /// the binary once the report's calendar unit is known.
     pub last: Option<u32>,
+    /// SSH destinations whose supported agent usage is included in unified reports.
+    pub ssh: Vec<String>,
+    pub openai_accounts: Vec<OpenAiAccount>,
+    pub openai_env_file: Option<PathBuf>,
+    pub refresh_openai: bool,
     pub json: bool,
+    pub html: Option<PathBuf>,
     pub mode: CostMode,
     pub debug: bool,
     pub debug_samples: usize,
@@ -179,6 +186,15 @@ pub struct AgentCommandArgs {
     pub codex_speed: CodexSpeed,
 }
 
+/// References credentials by environment variable; never holds a secret value.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OpenAiAccount {
+    pub name: String,
+    pub key_env: String,
+    pub since: String,
+    pub project_ids: Vec<String>,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NamedPiStore {
     pub name: String,
@@ -318,6 +334,15 @@ pub trait CliConfig {
 pub struct NoConfig;
 
 impl CliConfig for NoConfig {}
+
+/// Accept SSH aliases and user@host destinations, never shell syntax or options.
+pub fn valid_ssh_destination(host: &str) -> bool {
+    !host.is_empty()
+        && !host.starts_with('-')
+        && host
+            .bytes()
+            .all(|c| c.is_ascii_alphanumeric() || b"@._-:[]".contains(&c))
+}
 
 #[cfg(test)]
 mod tests {
