@@ -67,6 +67,12 @@ Only the first discovered file is loaded. `--config /path/to/ccusage.json` selec
 an explicit file. Configured SSH servers are ignored by focused reports for other
 agents. `--ssh` appends destinations; `--no-ssh` clears them in argument order.
 
+## OpenAI Platform accounts (fork)
+
+See [OpenAI Platform](./openai-platform.md) to add named accounts using admin keys
+from a private dotenv file. Normal period reports collect all available history;
+rolling reports request their selected window.
+
 ## Quick Start
 
 ### 1. Use Schema for IDE Support

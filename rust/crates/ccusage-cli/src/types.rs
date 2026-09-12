@@ -40,6 +40,9 @@ pub struct SharedArgs {
     pub last: Option<u32>,
     /// SSH destinations whose Hermes usage is included alongside local usage.
     pub ssh: Vec<String>,
+    pub openai_accounts: Vec<OpenAiAccount>,
+    pub openai_env_file: Option<PathBuf>,
+    pub refresh_openai: bool,
     pub json: bool,
     pub mode: CostMode,
     pub debug: bool,
@@ -180,6 +183,15 @@ pub struct AgentCommandArgs {
     pub pi_path: Option<String>,
     pub open_claw_path: Option<String>,
     pub codex_speed: CodexSpeed,
+}
+
+/// References credentials by environment variable; never holds a secret value.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OpenAiAccount {
+    pub name: String,
+    pub key_env: String,
+    pub since: String,
+    pub project_ids: Vec<String>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

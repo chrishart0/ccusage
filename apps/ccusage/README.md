@@ -51,6 +51,11 @@ Run `ccusage rolling` for a 30-day summary or `ccusage rolling 7` for seven days
 Normal daily and monthly reports remain unfiltered. Reports combine local usage with **Hermes** usage from the
 configured SSH servers. Servers need Python 3; ccusage need not be installed
 remotely. `--ssh another-host` adds a server, and `--no-ssh` runs locally only.
+
+You can also configure named OpenAI Platform accounts with admin keys stored in
+`~/.config/ccusage/openai.env`. Daily/monthly reports collect all available API
+history, and rolling reports use their selected window. See the
+[OpenAI Platform guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/openai-platform.md).
 See the [configuration guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/config-files.md) for behavior and limits.
 
 ## Major Sponsors

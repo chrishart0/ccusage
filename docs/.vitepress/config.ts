@@ -96,6 +96,7 @@ export default defineConfig({
 						{ text: 'Command-Line Options', link: '/guide/cli-options' },
 						{ text: 'Environment Variables', link: '/guide/environment-variables' },
 						{ text: 'Configuration Files', link: '/guide/config-files' },
+						{ text: 'OpenAI Platform', link: '/guide/openai-platform' },
 						{ text: 'Cost Calculation Modes', link: '/guide/cost-modes' },
 					],
 				},

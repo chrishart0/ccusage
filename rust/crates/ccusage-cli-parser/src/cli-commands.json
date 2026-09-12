@@ -1,7 +1,12 @@
 {
 	"combinedOptions": {
 		"agent_period_options": ["agent_options", "last_options"],
-		"all_agent_period_options": ["all_agent_options", "last_options", "ssh_options"],
+		"all_agent_period_options": [
+			"all_agent_options",
+			"last_options",
+			"ssh_options",
+			"openai_options"
+		],
 		"all_agent_session_options": ["all_agent_options", "session_options", "ssh_options"],
 		"blocks_combined_options": ["shared_claude_options", "blocks_options"],
 		"claude_daily_options": ["shared_claude_options", "daily_options", "last_options"],
@@ -15,7 +20,7 @@
 		"pi_period_options": ["agent_options", "pi_options", "last_options"],
 		"hermes_period_options": ["agent_options", "last_options", "ssh_options"],
 		"hermes_session_options": ["agent_options", "ssh_options"],
-		"rolling_report_options": ["rolling_options", "ssh_options"]
+		"rolling_report_options": ["rolling_options", "ssh_options", "openai_options"]
 	},
 	"root": {
 		"usage": ["ccusage [daily] <OPTIONS>", "ccusage <COMMANDS>"],

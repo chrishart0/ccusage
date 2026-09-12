@@ -11604,6 +11604,55 @@
 					},
 					"type": "object"
 				},
+				"openai": {
+					"additionalProperties": false,
+					"description": "Named OpenAI Platform accounts, with credentials referenced by environment variable.",
+					"markdownDescription": "Named OpenAI Platform accounts, with credentials referenced by environment variable.",
+					"properties": {
+						"accounts": {
+							"items": {
+								"additionalProperties": false,
+								"properties": {
+									"keyEnv": {
+										"description": "Name of the environment variable holding an organization admin key.",
+										"markdownDescription": "Name of the environment variable holding an organization admin key.",
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									},
+									"projectIds": {
+										"default": [],
+										"description": "Optional project filters; omit to include the entire organization.",
+										"items": {
+											"type": "string"
+										},
+										"markdownDescription": "Optional project filters; omit to include the entire organization.",
+										"type": "array"
+									},
+									"since": {
+										"type": "string"
+									}
+								},
+								"required": ["keyEnv", "name"],
+								"type": "object"
+							},
+							"type": "array"
+						},
+						"envFile": {
+							"description": "Private dotenv file; defaults to ~/.config/ccusage/openai.env.",
+							"markdownDescription": "Private dotenv file; defaults to ~/.config/ccusage/openai.env.",
+							"type": "string"
+						},
+						"since": {
+							"description": "History start, default 2020-01-01 (OpenAI Platform history).",
+							"markdownDescription": "History start, default 2020-01-01 (OpenAI Platform history).",
+							"type": "string"
+						}
+					},
+					"required": ["accounts"],
+					"type": "object"
+				},
 				"openclaw": {
 					"additionalProperties": false,
 					"description": "OpenClaw configuration.",

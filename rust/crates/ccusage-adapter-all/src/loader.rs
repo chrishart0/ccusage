@@ -378,6 +378,45 @@ fn load_base_rows(
             }),
         });
     }
+    if load_kind != AgentReportKind::Session {
+        for account in &shared.openai_accounts {
+            let agent = leak_agent_name(&format!("OpenAI: {}", account.name));
+            let index = specs.len();
+            let loader_shared_ref = &loader_shared;
+            specs.push(AgentLoadSpec {
+                index,
+                agent,
+                progress_agent: crate::progress::UsageLoadAgent(agent),
+                load: Box::new(move || {
+                    let days = ccusage_adapter_openai::load_daily(account, loader_shared_ref)?;
+                    Ok(AgentRows {
+                        detected: true,
+                        rows: days
+                            .into_iter()
+                            .map(|day| {
+                                let total_tokens = day.total_tokens();
+                                AllRow {
+                                    period: day.date,
+                                    agent,
+                                    models_used: day.models.into_iter().collect(),
+                                    input_tokens: day.input_tokens,
+                                    output_tokens: day.output_tokens,
+                                    cache_creation_tokens: day.cache_creation_tokens,
+                                    cache_read_tokens: day.cache_read_tokens,
+                                    total_tokens,
+                                    total_cost: day.total_cost,
+                                    metadata: None,
+                                    metadata_agents: Some(vec![agent]),
+                                    agent_breakdowns: None,
+                                    model_breakdowns: Vec::new(),
+                                }
+                            })
+                            .collect(),
+                    })
+                }),
+            });
+        }
+    }
     let loaded = load_agent_rows_parallel(specs, &mut progress)?;
     let mut detected_agents = Vec::new();
     let mut rows = Vec::new();

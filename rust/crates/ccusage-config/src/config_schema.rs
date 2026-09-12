@@ -11,8 +11,31 @@ use schemars::{JsonSchema, r#gen::SchemaSettings};
 pub const NAMED_PI_STORE_NAME_PATTERN: &str = "^[a-z][a-z0-9_-]{0,31}$";
 
 #[derive(Debug, Default, Deserialize, JsonSchema)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct OpenAiConfig {
+    /// Private dotenv file; defaults to ~/.config/ccusage/openai.env.
+    pub env_file: Option<String>,
+    /// History start, default 2020-01-01 (OpenAI Platform history).
+    pub since: Option<String>,
+    pub accounts: Vec<OpenAiAccountConfig>,
+}
+#[derive(Debug, Default, Deserialize, JsonSchema)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct OpenAiAccountConfig {
+    pub name: String,
+    /// Name of the environment variable holding an organization admin key.
+    pub key_env: String,
+    pub since: Option<String>,
+    /// Optional project filters; omit to include the entire organization.
+    #[serde(default)]
+    pub project_ids: Vec<String>,
+}
+
+#[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct CcusageConfig {
+    /// Named OpenAI Platform accounts, with credentials referenced by environment variable.
+    pub openai: Option<OpenAiConfig>,
     /// JSON Schema URL for validation and autocomplete.
     #[serde(rename = "$schema")]
     pub schema_url: Option<String>,
@@ -1225,6 +1248,7 @@ mod tests {
                 "kimi",
                 "opencode",
                 "openclaw",
+                "openai",
                 "pi",
                 "qwen",
                 "zcode",

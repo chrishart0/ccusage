@@ -762,6 +762,8 @@ fn parse_shared_arg(parser: &mut ArgParser, shared: &mut SharedArgs) -> Result<(
         "-u" | "--until" => {
             shared.until = Some(parse_date_bound("--until", &parser.value_for("--until")?)?)
         }
+        "--no-openai" => shared.openai_accounts.clear(),
+        "--refresh-openai" => shared.refresh_openai = true,
         "--no-ssh" => shared.ssh.clear(),
         "--ssh" => {
             let host = parser.value_for("--ssh").map_err(|_| {
@@ -1046,6 +1048,8 @@ fn is_shared_flag(arg: &str) -> bool {
             | "--last"
             | "--ssh"
             | "--no-ssh"
+            | "--no-openai"
+            | "--refresh-openai"
             | "-j"
             | "--json"
             | "-m"

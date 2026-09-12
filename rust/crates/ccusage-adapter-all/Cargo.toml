@@ -5,6 +5,7 @@ edition.workspace = true
 publish.workspace = true
 
 [dependencies]
+ccusage-adapter-openai.workspace = true
 ccusage-adapter-amp.workspace = true
 ccusage-adapter-antigravity.workspace = true
 ccusage-adapter-claude.workspace = true

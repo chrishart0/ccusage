@@ -504,5 +504,15 @@
 			"flags": "--last <days>",
 			"description": "Number of calendar days to summarize (default: 30 or commands.rolling.last)"
 		}
+	],
+	"openai_options": [
+		{
+			"flags": "--no-openai",
+			"description": "Skip configured OpenAI Platform accounts for this invocation"
+		},
+		{
+			"flags": "--refresh-openai",
+			"description": "Refresh OpenAI usage instead of using the five-minute cache"
+		}
 	]
 }

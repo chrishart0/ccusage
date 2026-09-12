@@ -67,6 +67,12 @@ impl ConfigContext {
     /// so the check runs here and surfaces through `config_error` for every
     /// command that applies shared options, not just the pi-store readers.
     fn detect_shared_option_error(&self) -> Option<String> {
+        if self.command_uses_named_pi_stores()
+            && self.command.report != "session"
+            && let Err(error) = crate::openai::parse(self.value.as_ref())
+        {
+            return Some(error);
+        }
         for options in self.option_maps() {
             if let Some(last) = options.get("last")
                 && !last
@@ -433,6 +439,13 @@ fn is_report_command(command: &str) -> bool {
 }
 
 fn apply_config_to_shared(shared: &mut SharedArgs, config: &ConfigContext) {
+    if config.command_uses_named_pi_stores()
+        && config.command.report != "session"
+        && let Ok((accounts, env_file)) = crate::openai::parse(config.value.as_ref())
+    {
+        shared.openai_accounts = accounts;
+        shared.openai_env_file = env_file;
+    }
     for options in config.option_maps() {
         apply_shared_options(shared, SharedOptions::from_map(options));
     }

@@ -8,3 +8,5 @@ pub mod config_schema;
 
 pub use config::ConfigContext;
 pub use config_schema::generate_config_schema_json;
+
+mod openai;
