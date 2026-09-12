@@ -163,6 +163,29 @@ fn parse_command(
         ));
     }
     match command {
+        "rolling" => {
+            let mut shared = shared;
+            if parser.peek().is_some_and(|arg| !arg.starts_with('-')) {
+                shared.last = Some(parse_last_periods(
+                    &parser.next().expect("peeked day count"),
+                )?);
+            }
+            let Command::All(mut args) = parse_all_command(
+                parser,
+                shared,
+                AgentReportKind::Daily,
+                config,
+                root_all_options,
+            )?
+            else {
+                unreachable!()
+            };
+            args.shared.last.get_or_insert(30);
+            if args.sections.is_some() {
+                return Err("The rolling view cannot be combined with --sections.".to_string());
+            }
+            Ok(Command::Rolling(args))
+        }
         "daily" => parse_all_command(
             parser,
             shared,
@@ -362,7 +385,10 @@ fn parse_command(
 }
 
 fn accepts_root_all_options(command: &str) -> bool {
-    matches!(command, "daily" | "monthly" | "weekly" | "session")
+    matches!(
+        command,
+        "daily" | "monthly" | "weekly" | "session" | "rolling"
+    )
 }
 
 fn parse_root_all_arg(
@@ -782,6 +808,7 @@ fn is_command(arg: &str) -> bool {
         arg,
         "daily"
             | "monthly"
+            | "rolling"
             | "weekly"
             | "session"
             | "blocks"
@@ -1066,7 +1093,9 @@ fn parse_last_periods(value: &str) -> Result<u32, String> {
 fn last_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Option<String> {
     let (shared, supported) = match command {
         None => (root_shared, true),
-        Some(Command::All(args)) => (&args.shared, args.kind != AgentReportKind::Session),
+        Some(Command::All(args) | Command::Rolling(args)) => {
+            (&args.shared, args.kind != AgentReportKind::Session)
+        }
         Some(Command::Daily(args)) => (&args.shared, true),
         Some(Command::Monthly(shared)) => (shared, true),
         Some(Command::Weekly(args)) => (&args.shared, true),
@@ -1201,7 +1230,7 @@ fn parse_cost_source(value: &str) -> Result<CostSource, String> {
 fn ssh_option_error(command: Option<&Command>, root_shared: &SharedArgs) -> Option<String> {
     let (shared, supported) = match command {
         None => (root_shared, true),
-        Some(Command::All(args)) => (&args.shared, true),
+        Some(Command::All(args) | Command::Rolling(args)) => (&args.shared, true),
         Some(Command::Daily(args)) => (&args.shared, false),
         Some(Command::Monthly(shared)) => (shared, false),
         Some(Command::Weekly(args)) => (&args.shared, false),

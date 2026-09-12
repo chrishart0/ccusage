@@ -27,6 +27,7 @@ fn main() -> Result<()> {
     let cli = cli::parse();
     match cli.command {
         Some(Command::All(args)) => adapter::all::run(args),
+        Some(Command::Rolling(args)) => ccusage_adapter_all::run_rolling(args),
         Some(Command::Daily(args)) => commands::run_daily(args),
         Some(Command::Monthly(shared)) => commands::run_bucket(shared, BucketKind::Monthly),
         Some(Command::Weekly(args)) => commands::run_weekly(args),

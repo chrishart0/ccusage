@@ -147,6 +147,7 @@ fn command_snapshot(command: Option<Command>) -> Value {
     match command {
         None => Value::Null,
         Some(Command::All(args)) => agent_command_snapshot("all", args),
+        Some(Command::Rolling(args)) => agent_command_snapshot("rolling", args),
         Some(Command::Daily(args)) => json!({
             "type": "daily",
             "shared": shared_snapshot(&args.shared),
@@ -1430,5 +1431,31 @@ fn config_ssh_defaults_can_be_extended_disabled_or_ignored_by_other_agents() {
         };
         assert_eq!(args.shared.ssh, hosts);
         assert_eq!(args.shared.last, Some(last));
+    }
+}
+
+#[test]
+fn rolling_is_a_separate_view_with_an_optional_day_count() {
+    for (argv, days) in [
+        (vec!["ccusage", "rolling"], 30),
+        (vec!["ccusage", "rolling", "7"], 7),
+    ] {
+        let Some(Command::Rolling(args)) = parse(&argv).command else {
+            panic!("expected rolling view");
+        };
+        assert_eq!(args.shared.last, Some(days));
+    }
+    assert!(parse(&["ccusage"]).shared.last.is_none());
+}
+
+#[test]
+fn rolling_rejects_invalid_windows_and_sections() {
+    for argv in [
+        vec!["ccusage", "rolling", "0"],
+        vec!["ccusage", "rolling", "bad"],
+        vec!["ccusage", "rolling", "--sections", "monthly"],
+        vec!["ccusage", "rolling", "--since", "20260101"],
+    ] {
+        assert!(Cli::parse_from(argv.iter().map(OsString::from)).is_err());
     }
 }

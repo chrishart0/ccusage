@@ -156,7 +156,7 @@ impl ConfigContext {
         self.command.agent.is_none()
             && matches!(
                 self.command.report.as_str(),
-                "daily" | "weekly" | "monthly" | "session"
+                "daily" | "weekly" | "monthly" | "session" | "rolling"
             )
     }
 }
@@ -444,7 +444,7 @@ fn apply_config_to_shared(shared: &mut SharedArgs, config: &ConfigContext) {
         .is_some_and(|agent| agent != "hermes")
         || !matches!(
             config.command.report.as_str(),
-            "daily" | "weekly" | "monthly" | "session"
+            "daily" | "weekly" | "monthly" | "session" | "rolling"
         )
     {
         shared.ssh.clear();
@@ -1433,6 +1433,18 @@ mod tests {
         let fixture = fs_fixture!({});
         let _guard = ccusage_test_support::EnvVarGuard::set("XDG_CONFIG_HOME", fixture.path(""));
         assert!(discover_config_paths().contains(&fixture.path("ccusage/ccusage.json")));
+    }
+
+    #[test]
+    fn rolling_configuration_does_not_filter_other_views() {
+        let raw = r#"{"defaults":{"ssh":["crm"]},"commands":{"rolling":{"last":14}}}"#;
+        for (command, expected) in [("rolling", Some(14)), ("daily", None), ("monthly", None)] {
+            let context = config_context_for_command(raw, &[command]);
+            let mut shared = SharedArgs::with_defaults();
+            context.apply_shared(&mut shared);
+            assert_eq!(shared.last, expected);
+            assert_eq!(shared.ssh, ["crm"]);
+        }
     }
 
     fn config_context_from_json(raw: &str) -> ConfigContext {

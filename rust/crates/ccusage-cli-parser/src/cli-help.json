@@ -437,5 +437,72 @@
 			"flags": "--no-ssh",
 			"description": "Disable configured SSH servers for this invocation"
 		}
+	],
+	"rolling_options": [
+		{
+			"flags": "-j, --json",
+			"description": "Output in JSON format",
+			"default": "false"
+		},
+		{
+			"flags": "-z, --timezone <timezone>",
+			"description": "Timezone for date grouping (IANA)"
+		},
+		{
+			"flags": "--all",
+			"description": "Accepted for compatibility; all detected supported agents are included by default",
+			"default": "false"
+		},
+		{
+			"flags": "--by-agent",
+			"description": "Include per-agent JSON breakdowns in unified report rows",
+			"default": "false"
+		},
+		{
+			"flags": "-O, --offline",
+			"description": "Use cached pricing data where supported",
+			"default": "false"
+		},
+		{
+			"flags": "--no-offline",
+			"description": "Negatable of -O, --offline"
+		},
+		{
+			"flags": "--compact",
+			"description": "Force compact table layout for narrow terminals",
+			"default": "false"
+		},
+		{
+			"flags": "--no-cost",
+			"description": "Hide cost information in table and JSON output",
+			"default": "false"
+		},
+		{
+			"flags": "--color",
+			"description": "Enable colored output. FORCE_COLOR=1 has the same effect.",
+			"default": "auto"
+		},
+		{
+			"flags": "--no-color",
+			"description": "Disable colored output. NO_COLOR=1 has the same effect.",
+			"default": "auto"
+		},
+		{
+			"flags": "--config <config>",
+			"description": "Path to configuration file",
+			"default": "auto-discovery"
+		},
+		{
+			"flags": "-h, --help",
+			"description": "Display this help message"
+		},
+		{
+			"flags": "-v, --version",
+			"description": "Display this version"
+		},
+		{
+			"flags": "--last <days>",
+			"description": "Number of calendar days to summarize (default: 30 or commands.rolling.last)"
+		}
 	]
 }

@@ -1,5 +1,7 @@
 mod loader;
 mod report;
+mod rolling;
+pub use rolling::run as run_rolling;
 mod types;
 
 use ccusage_adapter_codex::CodexGroup;

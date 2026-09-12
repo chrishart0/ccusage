@@ -308,5 +308,7 @@ ccusage daily --instances --since 20260501
 - [Session Usage](/guide/session-reports) - Per-conversation analysis
 - [Claude Code](/guide/claude/) - Claude Code-specific setup and features
 
-Persist `last: 30` under `commands.daily` and configure SSH servers in your
-[configuration file](/guide/config-files#ssh-collection-and-a-default-30-day-view-fork).
+For a separate combined summary, use `ccusage rolling` (30 days) or
+`ccusage rolling 7` (seven days). Set its default under `commands.rolling.last`
+and configure SSH servers in your
+[configuration file](/guide/config-files#ssh-collection-and-a-rolling-days-view-fork).

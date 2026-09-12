@@ -72,5 +72,5 @@ If Hermes has no recorded cost and a model is not in LiteLLM or ccusage's bundle
 ## SSH servers
 
 This fork can combine local Hermes usage with configured SSH servers. See
-[SSH collection and a default 30-day view](/guide/config-files#ssh-collection-and-a-default-30-day-view-fork)
+[SSH collection and a rolling-days view](/guide/config-files#ssh-collection-and-a-rolling-days-view-fork)
 for the config file, prerequisites, and collection behavior.

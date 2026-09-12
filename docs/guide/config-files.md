@@ -2,7 +2,7 @@
 
 ccusage supports JSON configuration files for persistent settings. Configuration files allow you to set default options for all commands or customize behavior for specific commands without repeating options every time.
 
-## SSH collection and a default 30-day view (fork)
+## SSH collection and a rolling-days view (fork)
 
 Save this as `~/.config/ccusage/ccusage.json` (or
 `$XDG_CONFIG_HOME/ccusage/ccusage.json`):
@@ -14,13 +14,15 @@ Save this as `~/.config/ccusage/ccusage.json` (or
 		"timezone": "America/New_York"
 	},
 	"commands": {
-		"daily": { "last": 30 }
+		"rolling": { "last": 30 }
 	}
 }
 ```
 
-Run `ccusage` to combine all locally detected agents with Hermes usage from `crm`
-over the last 30 calendar days, including today. Add more SSH aliases or
+Run `ccusage rolling` for one combined summary of all locally detected agents and
+Hermes usage from `crm` over the last 30 calendar days, including today.
+`ccusage rolling 7` changes the window to seven days. Normal daily and monthly
+reports have no default date filter. Add more SSH aliases or
 `user@hostname` destinations to `ssh`. Your existing SSH config supplies keys,
 ports, and jump hosts. No ccusage installation is needed on the servers; they
 need Python 3 and readable Hermes databases under `${HERMES_HOME:-~/.hermes}`.
@@ -28,11 +30,13 @@ Collection includes `state.db` and named `profiles/*/state.db` databases, but
 excludes `state-snapshots` backups.
 
 ```sh
-ccusage                          # Configured daily report
+ccusage                          # Normal daily report, all dates
+ccusage rolling                  # One summary for the last 30 days
+ccusage rolling 7                # One summary for the last 7 days
 ccusage hermes daily             # Local and remote Hermes only
 ccusage daily --ssh another-host  # Add a server for this run
 ccusage daily --no-ssh            # Local usage only for this run
-ccusage daily --last 7            # Override the configured period count
+ccusage rolling --last 7          # Equivalent explicit day-count option
 ```
 
 SSH collection currently supports **Hermes**. It reads only billing counters,
@@ -50,7 +54,10 @@ first if necessary. `--offline` disables pricing fetches, but still collects SSH
 usage; use `--no-ssh` to skip remote collection.
 
 `last` counts the report's calendar periods (days for daily, weeks for weekly,
-months for monthly), so put `last: 30` under `commands.daily` for a 30-day default.
+months for monthly). For the rolling view it always counts days. Set
+`commands.rolling.last` to change that view's default without filtering other
+reports. Rolling JSON uses a `rolling` array with one summary (empty when no usage
+exists), plus `window` bounds and `totals`.
 It cannot be combined with `since`, `until`, or multiple `sections`. Hermes
 attributes cumulative session counters to the session start date, as it does for
 local data; these are not per-request daily measurements.

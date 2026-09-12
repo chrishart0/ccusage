@@ -37,17 +37,18 @@ ccusage-fork
 
 Use `ccusage-fork` in place of `ccusage` in the examples below.
 
-Configure SSH servers and a default last-30-days view in
+Configure SSH servers and a separate rolling-days summary in
 `~/.config/ccusage/ccusage.json`:
 
 ```json
 {
 	"defaults": { "ssh": ["crm"], "timezone": "America/New_York" },
-	"commands": { "daily": { "last": 30 } }
+	"commands": { "rolling": { "last": 30 } }
 }
 ```
 
-Then run `ccusage`. Reports combine local usage with **Hermes** usage from the
+Run `ccusage rolling` for a 30-day summary or `ccusage rolling 7` for seven days.
+Normal daily and monthly reports remain unfiltered. Reports combine local usage with **Hermes** usage from the
 configured SSH servers. Servers need Python 3; ccusage need not be installed
 remotely. `--ssh another-host` adds a server, and `--no-ssh` runs locally only.
 See the [configuration guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/config-files.md) for behavior and limits.

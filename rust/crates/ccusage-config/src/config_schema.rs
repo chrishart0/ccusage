@@ -61,6 +61,8 @@ pub struct CcusageConfig {
 #[derive(Debug, Default, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct RootCommandsConfig {
+    /// One summary for the most recent N days; defaults to 30.
+    pub rolling: Option<SharedOptions>,
     pub daily: Option<DailyOptions>,
     pub weekly: Option<WeeklyOptions>,
     pub monthly: Option<SharedOptions>,

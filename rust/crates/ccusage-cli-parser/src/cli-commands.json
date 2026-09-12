@@ -14,7 +14,8 @@
 		"pi_combined_options": ["agent_options", "pi_options"],
 		"pi_period_options": ["agent_options", "pi_options", "last_options"],
 		"hermes_period_options": ["agent_options", "last_options", "ssh_options"],
-		"hermes_session_options": ["agent_options", "ssh_options"]
+		"hermes_session_options": ["agent_options", "ssh_options"],
+		"rolling_report_options": ["rolling_options", "ssh_options"]
 	},
 	"root": {
 		"usage": ["ccusage [daily] <OPTIONS>", "ccusage <COMMANDS>"],
@@ -22,6 +23,10 @@
 			{
 				"name": "daily",
 				"description": "Show all detected coding (agent) CLI usage grouped by date"
+			},
+			{
+				"name": "rolling",
+				"description": "Show one summary for the last N days (default: 30)"
 			},
 			{
 				"name": "monthly",
@@ -118,6 +123,12 @@
 		]
 	},
 	"pages": [
+		{
+			"path": ["rolling"],
+			"description": "One summary for the last N calendar days, including today",
+			"usage": "ccusage rolling [days] <OPTIONS>",
+			"options": "rolling_report_options"
+		},
 		{
 			"path": ["daily"],
 			"description": "Show all detected coding (agent) CLI usage grouped by date",

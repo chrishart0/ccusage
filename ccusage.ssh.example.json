@@ -5,6 +5,6 @@
 		"timezone": "America/New_York"
 	},
 	"commands": {
-		"daily": { "last": 30 }
+		"rolling": { "last": 30 }
 	}
 }

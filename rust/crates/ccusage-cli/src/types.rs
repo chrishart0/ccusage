@@ -5,6 +5,7 @@ use std::{
 
 pub enum Command {
     All(AgentCommandArgs),
+    Rolling(AgentCommandArgs),
     Daily(DailyArgs),
     Monthly(SharedArgs),
     Weekly(WeeklyArgs),
