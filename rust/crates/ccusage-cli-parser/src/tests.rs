@@ -1459,3 +1459,32 @@ fn rolling_rejects_invalid_windows_and_sections() {
         assert!(Cli::parse_from(argv.iter().map(OsString::from)).is_err());
     }
 }
+
+#[test]
+fn html_export_accepts_period_reports_and_rejects_conflicting_outputs() {
+    for command in ["daily", "weekly", "monthly", "rolling"] {
+        let cli = parse(&["ccusage", command, "--html", "usage.html"]);
+        let Some(Command::All(args) | Command::Rolling(args)) = cli.command else {
+            panic!("expected unified report");
+        };
+        assert_eq!(
+            args.shared.html.as_deref(),
+            Some(std::path::Path::new("usage.html"))
+        );
+    }
+    for argv in [
+        vec!["ccusage", "daily", "--html", "usage.html", "--json"],
+        vec!["ccusage", "session", "--html", "usage.html"],
+        vec!["ccusage", "codex", "daily", "--html", "usage.html"],
+        vec![
+            "ccusage",
+            "daily",
+            "--html",
+            "usage.html",
+            "--sections",
+            "monthly",
+        ],
+    ] {
+        assert!(Cli::parse_from(argv.iter().map(OsString::from)).is_err());
+    }
+}

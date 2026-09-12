@@ -56,8 +56,8 @@ can take longer because it follows every page for each account.
 Tokens include completions and embeddings. Cached input is separated from
 uncached input without double counting. Costs come from the organization Costs
 API, including charges for products that do not report token counts, so a day
-can have costs and zero tokens. Model cost breakdowns are not estimated from
-these billing totals. All Platform days use UTC buckets, even when local agent
+can have costs and zero tokens. Model token breakdowns are included, but model costs are not estimated from
+these billing totals. [HTML reports](./html-reports.md) show those costs as unallocated. All Platform days use UTC buckets, even when local agent
 reports use another timezone. API reporting delays can affect recent days.
 See OpenAI's [Usage API documentation](https://platform.openai.com/docs/api-reference/usage).
 

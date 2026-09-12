@@ -514,5 +514,11 @@
 			"flags": "--refresh-openai",
 			"description": "Refresh OpenAI usage instead of using the five-minute cache"
 		}
+	],
+	"html_options": [
+		{
+			"flags": "--html <path>",
+			"description": "Save a standalone HTML report with totals and charts over time"
+		}
 	]
 }

@@ -7,6 +7,9 @@ use crate::{
 };
 
 pub fn run(args: AgentCommandArgs) -> Result<()> {
+    if args.shared.html.is_some() {
+        return super::html::run(AgentReportKind::Daily, &args.shared);
+    }
     let days = args.shared.last.unwrap_or(30);
     let loaded = loader::load_rows(AgentReportKind::Daily, &args.shared)?;
     let rows = summarize(loaded.rows, days);

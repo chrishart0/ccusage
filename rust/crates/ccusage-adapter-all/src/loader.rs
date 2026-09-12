@@ -409,7 +409,7 @@ fn load_base_rows(
                                     metadata: None,
                                     metadata_agents: Some(vec![agent]),
                                     agent_breakdowns: None,
-                                    model_breakdowns: Vec::new(),
+                                    model_breakdowns: day.model_breakdowns.into_values().collect(),
                                 }
                             })
                             .collect(),

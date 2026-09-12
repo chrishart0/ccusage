@@ -97,6 +97,7 @@ export default defineConfig({
 						{ text: 'Environment Variables', link: '/guide/environment-variables' },
 						{ text: 'Configuration Files', link: '/guide/config-files' },
 						{ text: 'OpenAI Platform', link: '/guide/openai-platform' },
+						{ text: 'HTML Reports', link: '/guide/html-reports' },
 						{ text: 'Cost Calculation Modes', link: '/guide/cost-modes' },
 					],
 				},

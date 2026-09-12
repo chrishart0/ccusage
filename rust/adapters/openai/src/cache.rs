@@ -14,7 +14,7 @@ pub(super) fn path(account: &OpenAiAccount, key: &str, start: i64, end: i64) -> 
         .map(PathBuf::from)
         .or_else(|| std::env::var_os("HOME").map(|home| PathBuf::from(home).join(".cache")))?;
     let identity =
-        serde_json::to_vec(&(1, key, &account.project_ids, start, (end - 1) / 86400)).ok()?;
+        serde_json::to_vec(&(2, key, &account.project_ids, start, (end - 1) / 86400)).ok()?;
     let digest = Sha256::digest(identity);
     Some(root.join("ccusage/openai").join(format!("{digest:x}.json")))
 }

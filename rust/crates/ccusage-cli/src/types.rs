@@ -44,6 +44,7 @@ pub struct SharedArgs {
     pub openai_env_file: Option<PathBuf>,
     pub refresh_openai: bool,
     pub json: bool,
+    pub html: Option<PathBuf>,
     pub mode: CostMode,
     pub debug: bool,
     pub debug_samples: usize,

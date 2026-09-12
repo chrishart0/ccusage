@@ -104,6 +104,22 @@ fn collect_sources(
                 .saturating_add(day.cache_read_tokens);
             total.total_cost += day.total_cost;
             total.models.extend(day.models);
+            for (model, detail) in day.model_breakdowns {
+                let entry = total.model_breakdowns.entry(model).or_insert_with(|| {
+                    ccusage_core::ModelBreakdown {
+                        model_name: detail.model_name,
+                        ..Default::default()
+                    }
+                });
+                entry.input_tokens = entry.input_tokens.saturating_add(detail.input_tokens);
+                entry.output_tokens = entry.output_tokens.saturating_add(detail.output_tokens);
+                entry.cache_creation_tokens = entry
+                    .cache_creation_tokens
+                    .saturating_add(detail.cache_creation_tokens);
+                entry.cache_read_tokens = entry
+                    .cache_read_tokens
+                    .saturating_add(detail.cache_read_tokens);
+            }
         }
     }
     Ok(days)

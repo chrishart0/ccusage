@@ -12,6 +12,8 @@ pub struct PlatformDay {
     pub cache_read_tokens: u64,
     pub total_cost: f64,
     pub models: BTreeSet<String>,
+    #[serde(default)]
+    pub model_breakdowns: BTreeMap<String, ccusage_core::ModelBreakdown>,
 }
 impl PlatformDay {
     pub fn total_tokens(&self) -> u64 {
@@ -74,6 +76,18 @@ pub(super) fn merge_page(
                 day.cache_creation_tokens = day.cache_creation_tokens.saturating_add(write);
                 if let Some(model) = result["model"].as_str() {
                     day.models.insert(model.to_string());
+                    let detail = day
+                        .model_breakdowns
+                        .entry(model.to_string())
+                        .or_insert_with(|| ccusage_core::ModelBreakdown {
+                            model_name: model.to_string(),
+                            ..Default::default()
+                        });
+                    detail.input_tokens = detail.input_tokens.saturating_add(uncached);
+                    detail.output_tokens = detail.output_tokens.saturating_add(output);
+                    detail.cache_read_tokens = detail.cache_read_tokens.saturating_add(read);
+                    detail.cache_creation_tokens =
+                        detail.cache_creation_tokens.saturating_add(write);
                 }
             }
         }

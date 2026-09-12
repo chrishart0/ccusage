@@ -58,6 +58,10 @@ history, and rolling reports use their selected window. See the
 [OpenAI Platform guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/openai-platform.md).
 See the [configuration guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/config-files.md) for behavior and limits.
 
+Generate a portable report with charts and totals using `ccusage monthly --html usage.html`
+or `ccusage rolling 30 --html usage.html`. Open the file to explore usage over time,
+by agent and model. See the [HTML report guide](https://github.com/chrishart0/ccusage/blob/feat/ssh-usage/docs/guide/html-reports.md).
+
 ## Major Sponsors
 
 <div align="center">

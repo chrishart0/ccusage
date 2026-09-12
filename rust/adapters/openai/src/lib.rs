@@ -24,5 +24,7 @@ mod tests {
         assert_eq!(day.cache_creation_tokens, 100);
         assert_eq!(day.total_tokens(), 1200);
         assert_eq!(day.total_cost, 0.42);
+        assert_eq!(day.model_breakdowns["gpt-5.5"].input_tokens, 500);
+        assert_eq!(day.model_breakdowns["gpt-5.5"].output_tokens, 200);
     }
 }

@@ -81,3 +81,4 @@ OPTIONS:
   --no-ssh                             Disable configured SSH servers for this invocation
   --no-openai                          Skip configured OpenAI Platform accounts for this invocation
   --refresh-openai                     Refresh OpenAI usage instead of using the five-minute cache
+  --html <path>                        Save a standalone HTML report with totals and charts over time
